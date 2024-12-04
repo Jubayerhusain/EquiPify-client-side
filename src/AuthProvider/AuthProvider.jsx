@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { auth } from './../firebase/firebase.init';
+import { auth } from "./../firebase/firebase.init";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -65,13 +65,6 @@ function AuthProvider({ children }) {
     });
     return () => unsubscribe();
   }, []);
-  // // User Profile: user profile update
-  // const userProfile = async (userProfileData) => {
-  //   try {
-  //     return await updateProfile(auth.currentUser, userProfileData);
-  //   } finally {
-  //   }
-  // };
   const authInfo = {
     user,
     loading,
@@ -85,9 +78,8 @@ function AuthProvider({ children }) {
     <AuthContext.Provider value={authInfo}>
       {loading ? (
         <div class="flex items-center justify-center h-screen ">
-        <div class="spinner animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-green-500"></div>
-      </div>
-      
+          <div class="spinner animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
+        </div>
       ) : (
         children
       )}
@@ -96,4 +88,3 @@ function AuthProvider({ children }) {
 }
 
 export default AuthProvider;
-
