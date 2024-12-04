@@ -3,11 +3,12 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css"; // AOS animation styles
-// import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
-  // const { createUser, handleGoogleAuth } = useContext(AuthContext);
+  const [errors, setErrors] = useState({});
+  const { createUser, handleGoogleAuth } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,53 +18,56 @@ function SignUp() {
   const validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
 
   const validatePassword = (password) =>
-    /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password);
+    /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(password);  
 
   const handleRegister = (event) => {
     event.preventDefault();
     const name = event.target.name.value.trim();
     const email = event.target.email.value.trim();
-    const password = event.target.password.value;
+    const password = event.target.password.value.trim();
     const photo = event.target.photo.value.trim();
 
+    let tempErrors = {};
+
+    if (!name) {
+      tempErrors.name = "Name is required!";
+    }
+
     if (!validateEmail(email)) {
-      alert("Invalid email address!");
-      return;
+      tempErrors.email = "Invalid email address!";
     }
 
     if (!validatePassword(password)) {
-      alert(
-        "Password must be at least 6 characters long and include at least one uppercase letter and one number!"
-      );
+      tempErrors.password =
+        "Password must be at least 6 characters long and include at least one uppercase letter and one number!";
+    }
+
+    if (Object.keys(tempErrors).length > 0) {
+      setErrors(tempErrors);
       return;
     }
 
-    // createUser(email, password)
-    //   .then((res) => {
-    //     console.log("Successfully Signed Up!");
-    //     navigate(`/dashboard`);
-    //   })
-    //   .catch((err) => {
-    //     switch (err.code) {
-    //       case "auth/email-already-in-use":
-    //         alert("This email is already in use!");
-    //         break;
-    //       default:
-    //         alert("Something went wrong. Try again!");
-    //     }
-    //     console.error("ERROR:", err.message);
-    //   });
+    setErrors({}); // Clear errors if all validations pass
+
+    createUser(email, password)
+      .then((res) => {
+        console.log("Successfully Signed Up!");
+        navigate(`/dashboard`);
+      })
+      .catch((err) => {
+        switch (err.code) {
+          case "auth/email-already-in-use":
+            alert("This email is already in use!");
+            break;
+          default:
+            alert("Something went wrong. Try again!");
+        }
+        console.error("ERROR:", err.message);
+      });
   };
 
   const handleGoogleSignUp = () => {
-    // handleGoogleAuth()
-    //   .then((res) => {
-    //     console.log(res.user);
-    //     navigate(`/dashboard`);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
+    // handleGoogleAuth logic here
   };
 
   return (
@@ -88,6 +92,7 @@ function SignUp() {
             <p className="text-gray-500 text-sm">
               Start managing your sports equipment effortlessly.
             </p>
+
             {/* Name Field */}
             <div className="space-y-2">
               <label className="text-gray-600">Full Name</label>
@@ -96,9 +101,12 @@ function SignUp() {
                 name="name"
                 placeholder="Enter your full name"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                required
               />
+              {errors.name && (
+                <p className="text-red-500 text-sm">{errors.name}</p>
+              )}
             </div>
+
             {/* Photo URL Field */}
             <div className="space-y-2">
               <label className="text-gray-600">Profile Picture</label>
@@ -109,6 +117,7 @@ function SignUp() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               />
             </div>
+
             {/* Email Field */}
             <div className="space-y-2">
               <label className="text-gray-600">Email Address</label>
@@ -117,9 +126,12 @@ function SignUp() {
                 name="email"
                 placeholder="Enter your email"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                required
               />
+              {errors.email && (
+                <p className="text-red-500 text-sm">{errors.email}</p>
+              )}
             </div>
+
             {/* Password Field */}
             <div className="space-y-2 relative">
               <label className="text-gray-600">Password</label>
@@ -128,7 +140,6 @@ function SignUp() {
                 name="password"
                 placeholder="Enter your password"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                required
               />
               <button
                 type="button"
@@ -137,7 +148,11 @@ function SignUp() {
               >
                 {showPassword ? "Hide" : "Show"}
               </button>
+              {errors.password && (
+                <p className="text-red-500 text-sm">{errors.password}</p>
+              )}
             </div>
+
             {/* Submit Button */}
             <div>
               <button
