@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -67,24 +67,23 @@ function AllEquipiment() {
             </div>
             
             <div className="flex justify-between gap-4">
-              <button
-                onClick={() => alert(`Viewing details for ${product.itemName}`)}
+              <Link
                 className="btn bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
               >
                 View
-              </button>
-              <button
-                onClick={() => alert(`Updating ${product.itemName}`)}
+              </Link>
+              <Link
+                to={`/products/${product._id}`}
                 className="btn bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
               >
                 Update
-              </button>
-              <button
+              </Link>
+              <Link
                 onClick={() => handleDelete(product._id)}
                 className="btn bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
               >
                 Delete
-              </button>
+              </Link>
             </div>
           </div>
         ))}

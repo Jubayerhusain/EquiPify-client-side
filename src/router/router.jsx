@@ -26,6 +26,7 @@ const router = createBrowserRouter([
       {
         path: "/allSportsEquipment",
         element: <AllEquipiment></AllEquipiment>,
+        // loader: () => fetch(`https://equipify-server-side.vercel.app/products`),
         loader: () => fetch(`https://equipify-server-side.vercel.app/products`),
       },
       {
@@ -45,12 +46,13 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/updateEquipment",
+        path: "/products/:id",
         element: (
           <PrivateRoute>
             <UpdateEquipmentForm></UpdateEquipmentForm>
           </PrivateRoute>
         ),
+        loader: ({params}) => fetch(`https://equipify-server-side.vercel.app/products/${params.id}`),
       },
     ],
   },

@@ -3,19 +3,20 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 
 function UpdateEquipmentForm() {
   const { user } = useContext(AuthContext);
-
+  const product = useLoaderData();
+  console.log(product);
   useEffect(() => {
     AOS.init();
   }, []);
-
   const handleSubmitForm = (e) => {
     e.preventDefault();
     const form = e.target;
 
-    const newEquipment = {
+    const updatedEquipment = {
       image: form.image.value,
       itemName: form.itemName.value,
       categoryName: form.categoryName.value,
@@ -29,15 +30,15 @@ function UpdateEquipmentForm() {
       userName: user?.displayName,
     };
 
-    // Form validation
+    // Validate the form
     if (
-      !newEquipment.image ||
-      !newEquipment.itemName ||
-      !newEquipment.categoryName ||
-      !newEquipment.description ||
-      !newEquipment.price ||
-      !newEquipment.rating ||
-      !newEquipment.stockStatus
+      !updatedEquipment.image ||
+      !updatedEquipment.itemName ||
+      !updatedEquipment.categoryName ||
+      !updatedEquipment.description ||
+      !updatedEquipment.price ||
+      !updatedEquipment.rating ||
+      !updatedEquipment.stockStatus
     ) {
       Swal.fire({
         title: "Error!",
@@ -47,7 +48,35 @@ function UpdateEquipmentForm() {
       });
       return;
     }
- };
+
+    // Send PUT request to update the product
+    fetch(`https://equipify-server-side.vercel.app/products/${product._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedEquipment),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          Swal.fire({
+            title: "Success!",
+            text: "updated successfully!",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      });
+  };
 
   return (
     <div
@@ -71,6 +100,7 @@ function UpdateEquipmentForm() {
               type="url"
               id="image"
               name="image"
+              defaultValue={product.image}
               placeholder="Enter the image URL"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               required
@@ -85,6 +115,7 @@ function UpdateEquipmentForm() {
               type="text"
               id="itemName"
               name="itemName"
+              defaultValue={product.itemName}
               placeholder="Enter the item name"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               required
@@ -98,6 +129,7 @@ function UpdateEquipmentForm() {
             <select
               id="categoryName"
               name="categoryName"
+              defaultValue={product.categoryName}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               required
             >
@@ -121,6 +153,7 @@ function UpdateEquipmentForm() {
             <textarea
               id="description"
               name="description"
+              defaultValue={product.description}
               placeholder="Enter a brief description"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               rows="3"
@@ -136,6 +169,7 @@ function UpdateEquipmentForm() {
               type="number"
               id="price"
               name="price"
+              defaultValue={product.price}
               placeholder="Enter the price"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               required
@@ -150,6 +184,7 @@ function UpdateEquipmentForm() {
               type="number"
               id="rating"
               name="rating"
+              defaultValue={product.rating}
               placeholder="Enter the rating (1-5)"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               min="1"
@@ -166,6 +201,7 @@ function UpdateEquipmentForm() {
               type="text"
               id="customization"
               name="customization"
+              defaultValue={product.customization}
               placeholder="e.g., Bat with extra grip"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
@@ -179,6 +215,7 @@ function UpdateEquipmentForm() {
               type="text"
               id="processingTime"
               name="processingTime"
+              defaultValue={product.processingTime}
               placeholder="e.g., 3-5 days"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
@@ -192,6 +229,7 @@ function UpdateEquipmentForm() {
               type="number"
               id="stockStatus"
               name="stockStatus"
+              defaultValue={product.stockStatus}
               placeholder="Available quantity"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               required
