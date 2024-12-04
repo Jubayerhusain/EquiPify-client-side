@@ -1,21 +1,16 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-function Navber() {
-  //     Home
-  // All Sports Equipment
-  // Add Equipment (Private Route)
-  // My Equipment List (Private Route)
-
-  const link_center = (
+function Navbar() {
+  const linkCenter = (
     <>
       <li>
         <NavLink
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-xl font-bold text-blue-500"
-              : "text-xl text-gray-700"
+              ? "text-xl font-bold text-blue-500 hover:text-blue-600"
+              : "text-xl text-gray-700 hover:text-blue-500"
           }
         >
           Home
@@ -26,8 +21,8 @@ function Navber() {
           to="/allSportsEquipment"
           className={({ isActive }) =>
             isActive
-              ? "text-xl font-bold text-blue-500"
-              : "text-xl text-gray-700"
+              ? "text-xl font-bold text-blue-500 hover:text-blue-600"
+              : "text-xl text-gray-700 hover:text-blue-500"
           }
         >
           All Sports Equipment
@@ -38,8 +33,8 @@ function Navber() {
           to="/addEquipment"
           className={({ isActive }) =>
             isActive
-              ? "text-xl font-bold text-blue-500"
-              : "text-xl text-gray-700"
+              ? "text-xl font-bold text-blue-500 hover:text-blue-600"
+              : "text-xl text-gray-700 hover:text-blue-500"
           }
         >
           Add Equipment
@@ -50,8 +45,8 @@ function Navber() {
           to="/myEquipmentList"
           className={({ isActive }) =>
             isActive
-              ? "text-xl font-bold text-blue-500"
-              : "text-xl text-gray-700"
+              ? "text-xl font-bold text-blue-500 hover:text-blue-600"
+              : "text-xl text-gray-700 hover:text-blue-500"
           }
         >
           My Equipment List
@@ -59,49 +54,65 @@ function Navber() {
       </li>
     </>
   );
-  const link_right = (
+
+  const linkRight = (
     <>
-      <Link className="btn">SignIn</Link>
-      <Link className="btn">SignUp</Link>
+      <Link to="/signIn" className="btn bg-blue-500 text-white hover:bg-blue-600">
+        Sign In
+      </Link>
+      <Link to="/signUp" className="btn bg-blue-500 text-white hover:bg-blue-600">
+        Sign Up
+      </Link>
     </>
   );
+
   return (
-    <div>
-      <div className="navbar bg-base-100">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-60 space-x-7 p-2 shadow"
+    <div className="navbar bg-gray-100 shadow-md">
+      <div className="navbar-start">
+        {/* Dropdown for smaller screens */}
+        <div className="dropdown">
+          <button
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              {link_center}
-            </ul>
-          </div>
-          <a className="btn btn-ghost text-xl">EquiPify</a>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </button>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-60 space-y-2 p-2 shadow-lg"
+          >
+            {linkCenter}
+          </ul>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{link_center}</ul>
-        </div>
-        <div className="navbar-end space-x-3">{link_right}</div>
+        {/* Brand Name */}
+        <Link to="/" className="text-2xl font-bold text-blue-500">
+          EquiPify
+        </Link>
       </div>
+
+      {/* Center Links for larger screens */}
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal space-x-5">{linkCenter}</ul>
+      </div>
+
+      {/* Right Section */}
+      <div className="navbar-end space-x-3">{linkRight}</div>
     </div>
   );
 }
 
-export default Navber;
+export default Navbar;
