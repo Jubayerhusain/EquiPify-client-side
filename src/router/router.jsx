@@ -7,6 +7,7 @@ import AddEquipmentForm from "../components/AddEquipment/AddEquipment";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import CategoryProducts from "../components/CategoryProducts/CategoryProducts";
 import AllEquipiment from "../NavRoute/AllEquipiment/AllEquipiment";
+import UpdateEquipmentForm from "../components/EquipmentUpdate/EquipmentUpdate";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -15,17 +16,17 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        children:[
+        children: [
           {
-            path:"/category",
-            element: <CategoryProducts></CategoryProducts>
-          }
-        ]
+            path: "/category",
+            element: <CategoryProducts></CategoryProducts>,
+          },
+        ],
       },
       {
-        path:'/allSportsEquipment',
+        path: "/allSportsEquipment",
         element: <AllEquipiment></AllEquipiment>,
-        loader: ()=> fetch(`https://equipify-server-side.vercel.app/products`)
+        loader: () => fetch(`https://equipify-server-side.vercel.app/products`),
       },
       {
         path: "/signUp",
@@ -40,6 +41,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddEquipmentForm></AddEquipmentForm>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/updateEquipment",
+        element: (
+          <PrivateRoute>
+            <UpdateEquipmentForm></UpdateEquipmentForm>
           </PrivateRoute>
         ),
       },
