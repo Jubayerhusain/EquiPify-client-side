@@ -27,11 +27,19 @@ function AddEquipmentForm() {
       userEmail: user?.email,
       userName: user?.displayName,
     };
-
     console.log(newEquipment);
 
+    // POST the new product to database 
+    fetch(`http://localhost:8000/products`, {
+        method:'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(newEquipment)
+    })
+
     // Clear form fields after submission
-    form.reset();
+    // form.reset();
     alert("Product added successfully!");
   };
 

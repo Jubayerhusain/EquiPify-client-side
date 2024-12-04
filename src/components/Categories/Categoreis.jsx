@@ -18,9 +18,10 @@ function Categories() {
         {categories.map((category) => (
           <NavLink
             key={category.id}
-            to={`/category/${category.id}`}
+            to={`/category`}
+            // to={`/category/${category.categoryName}`}
             className={({ isActive }) =>
-              `block w-full text-center px-4 py-2 rounded-lg text-white ${
+              `block w-full text-center capitalize font-semibold px-4 py-2 rounded-lg text-gray-700 bg-blue-200 ${
                 isActive ? "bg-blue-600" : "bg-gray-400"
               } hover:bg-blue-500 transition duration-200`
             }
