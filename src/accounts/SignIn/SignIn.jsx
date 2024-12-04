@@ -14,12 +14,9 @@ function SignIn() {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const validatePassword = (password) => {
-    // Password must contain at least one uppercase, one lowercase, one digit, one special character, and minimum 6 characters
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-    return passwordRegex.test(password);
-  };
+
+  const validatePassword = (password) =>
+    /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(password);  
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -38,33 +35,25 @@ function SignIn() {
       return;
     }
 
-    // signInUser(email, password)
-    //   .then(() => {
-    //     console.log("Successfully Signed In!");
-    //     navigate("/dashboard");
-    //   })
-    //   .catch((err) => {
-    //     if (
-    //       err.code === "auth/wrong-password" ||
-    //       err.code === "auth/user-not-found"
-    //     ) {
-    //       alert("Invalid email or password!");
-    //     } else {
-    //       alert("Something went wrong. Please try again!");
-    //     }
-    //     console.error("ERROR:", err.message);
-    //   });
+    signInUser(email, password)
+      .then(() => {
+        console.log("Successfully Signed In!");
+        navigate("/");
+      })
+      .catch((err) => {
+        if (
+          err.code === "auth/wrong-password" ||
+          err.code === "auth/user-not-found"
+        ) {
+          alert("Invalid email or password!");
+        } else {
+          alert("Something went wrong. Please try again!");
+        }
+        console.error("ERROR:", err.message);
+      });
   };
 
-  const handleGoogleSignIn = () => {
-    handleGoogleAuth()
-    //   .then(() => {
-    //     navigate(`/dashboard`);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
-  };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
