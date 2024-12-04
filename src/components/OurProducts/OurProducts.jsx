@@ -9,8 +9,8 @@ function OurProduct({ products }) {
     }, []);
     return (
         <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4 text-center">
-                Popular Products ({products.slice(0, 6).length})
+            <h1 className="text-4xl my-5 text-gray-700 font-bold mb-4 text-center">
+                Popular Products
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-14">
                 {products.slice(0, 6).map((product, index) => (
