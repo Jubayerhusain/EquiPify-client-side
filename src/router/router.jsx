@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       {
         path:'/allSportsEquipment',
         element: <AllEquipiment></AllEquipiment>,
-        loader: ()=> fetch(`http://localhost:8000/products`)
+        loader: ()=> fetch(`https://equipify-server-side.vercel.app/products`)
       },
       {
         path: "/signUp",

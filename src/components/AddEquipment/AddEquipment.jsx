@@ -49,7 +49,7 @@ function AddEquipmentForm() {
     }
 
     // POST the new product to database
-    fetch(`http://localhost:8000/products`, {
+    fetch(`https://equipify-server-side.vercel.app/products`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

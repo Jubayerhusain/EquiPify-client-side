@@ -5,10 +5,8 @@ import "aos/dist/aos.css";
 
 function AllEquipiment() {
   const allProduct = useLoaderData();
-  // Handle Delete Function
   function handleDelete(id) {
   }
-  // Initialize AOS animation
   useEffect(() => {
     AOS.init();
   }, []);
@@ -21,9 +19,9 @@ function AllEquipiment() {
           <div
             key={product._id}
             className="bg-white rounded-lg shadow-md p-6 flex flex-col justify-between"
-            data-aos="fade-up" // AOS animation
-            data-aos-duration="1000" // Animation duration
-            data-aos-delay="200" // Delay before animation starts
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
           >
             <img
               src={product.image}
