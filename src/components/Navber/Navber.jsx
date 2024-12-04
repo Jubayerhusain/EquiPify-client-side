@@ -21,8 +21,8 @@ function Navbar() {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-xl font-bold text-blue-500 hover:text-blue-600"
-              : "text-xl text-gray-700 hover:text-blue-500"
+              ? "text-lg font-bold text-blue-500 hover:text-blue-600"
+              : "text-lg text-gray-700 hover:text-blue-500"
           }
         >
           Home
@@ -33,8 +33,8 @@ function Navbar() {
           to="/allSportsEquipment"
           className={({ isActive }) =>
             isActive
-              ? "text-xl font-bold text-blue-500 hover:text-blue-600"
-              : "text-xl text-gray-700 hover:text-blue-500"
+              ? "text-lg font-bold text-blue-500 hover:text-blue-600"
+              : "text-lg text-gray-700 hover:text-blue-500"
           }
         >
           All Sports Equipment
@@ -45,8 +45,8 @@ function Navbar() {
           to="/myEquipmentList"
           className={({ isActive }) =>
             isActive
-              ? "text-xl font-bold text-blue-500 hover:text-blue-600"
-              : "text-xl text-gray-700 hover:text-blue-500"
+              ? "text-lg font-bold text-blue-500 hover:text-blue-600"
+              : "text-lg text-gray-700 hover:text-blue-500"
           }
         >
           My Equipment List
@@ -57,8 +57,8 @@ function Navbar() {
           to="/addEquipment"
           className={({ isActive }) =>
             isActive
-              ? "text-xl font-bold text-blue-500 hover:text-blue-600"
-              : "text-xl text-gray-700 hover:text-blue-500"
+              ? "text-lg font-bold text-blue-500 hover:text-blue-600"
+              : "text-lg text-gray-700 hover:text-blue-500"
           }
         >
           Add Equipment
@@ -69,35 +69,52 @@ function Navbar() {
 
   const linkRight = (
     <>
-      {
-        !user ? (
-          <>
-            <Link
-              to="/signIn"
-              className="btn bg-blue-500 text-white hover:bg-blue-600"
-            >
-              Sign In
-            </Link>
-            <Link
-              to="/signUp"
-              className="btn bg-blue-500 text-white hover:bg-blue-600"
-            >
-              Sign Up
-            </Link>
-          </>
-        ) : <Link
-              onClick={hundlesignOutUser}
-              className="btn bg-blue-500 text-white hover:bg-blue-600"
-            >
-              Sign Out
-            </Link>
-      }
+      {!user ? (
+        <>
+          <Link
+            to="/signIn"
+            className="btn bg-blue-500 text-white hover:bg-blue-600"
+          >
+            Sign In
+          </Link>
+          <Link
+            to="/signUp"
+            className="btn bg-blue-500 text-white hover:bg-blue-600"
+          >
+            Sign Up
+          </Link>
+        </>
+      ) : (
+        <>
+          <div className="relative w-14 h-14">
+            <img
+              src={user.photoURL}
+              alt={user.displayName || "User"}
+              className="w-full h-full rounded-full border border-gray-300"
+            />
+            {/* Hover Name */}
+            <div className="absolute inset-0 bg-gray-800 bg-opacity-100 flex items-center pl-1 justify-center rounded-full opacity-0 hover:opacity-100 transition-opacity">
+              <span className="text-white text-xs font-semibold">
+                {user.displayName || "User"}
+              </span>
+            </div>
+          </div>
+          <Link
+            onClick={hundlesignOutUser}
+            className="btn bg-blue-500 text-white hover:bg-blue-600 ml-4"
+          >
+            Sign Out
+          </Link>
+        </>
+      )}
     </>
   );
   
+  
+  
 
   return (
-    <div className="navbar bg-gray-100 shadow-md">
+    <div className="navbar bg-gray-100 shadow-md lg:px-10">
       <div className="navbar-start">
         {/* Dropdown for smaller screens */}
         <div className="dropdown">
