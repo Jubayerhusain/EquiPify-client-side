@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Swal from "sweetalert2";
 
 function AddEquipmentForm() {
   const { user } = useContext(AuthContext);
@@ -27,20 +28,56 @@ function AddEquipmentForm() {
       userEmail: user?.email,
       userName: user?.displayName,
     };
-    console.log(newEquipment);
 
-    // POST the new product to database 
+    // Form validation
+    if (
+      !newEquipment.image ||
+      !newEquipment.itemName ||
+      !newEquipment.categoryName ||
+      !newEquipment.description ||
+      !newEquipment.price ||
+      !newEquipment.rating ||
+      !newEquipment.stockStatus
+    ) {
+      Swal.fire({
+        title: "Error!",
+        text: "All fields are required.",
+        icon: "warning",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    // POST the new product to database
     fetch(`http://localhost:8000/products`, {
-        method:'POST',
-        headers:{
-            'content-type':'application/json'
-        },
-        body:JSON.stringify(newEquipment)
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newEquipment),
     })
-
-    // Clear form fields after submission
-    // form.reset();
-    alert("Product added successfully!");
+      .then((res) => res.json())
+      .then((response) => {
+        if (response.ok) {
+          Swal.fire({
+            title: "Success!",
+            text: "Product added successfully!",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+          // Clear form fields after submission
+          form.reset();
+        }
+      })
+      .catch((error) => {
+        console.error("Error adding product:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "An error occurred while adding the product.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      });
   };
 
   return (
