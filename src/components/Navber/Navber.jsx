@@ -114,7 +114,7 @@ function Navbar() {
   
 
   return (
-    <div className="navbar bg-gray-100 shadow-md lg:px-10">
+    <div className="navbar py-5 sticky top-0 z-50 backdrop-blur-3xl bg-transparent shadow-md lg:px-10">
       <div className="navbar-start">
         {/* Dropdown for smaller screens */}
         <div className="dropdown">
@@ -146,7 +146,7 @@ function Navbar() {
           </ul>
         </div>
         {/* Brand Name */}
-        <Link to="/" className="text-2xl font-bold text-blue-500">
+        <Link to="/" className="text-3xl font-bold text-blue-500">
           EquiPify
         </Link>
       </div>
