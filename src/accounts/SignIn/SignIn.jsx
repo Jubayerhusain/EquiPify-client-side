@@ -53,7 +53,15 @@ function SignIn() {
       });
   };
 
-
+  const handleGoogleSignIn = () => {
+    handleGoogleAuth()
+      .then(() => {
+        navigate(`/dashboard`);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
