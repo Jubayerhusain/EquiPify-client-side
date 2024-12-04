@@ -72,7 +72,7 @@ function SignIn() {
         {/* Left Side: Info */}
         <div
           className="lg:w-1/2 w-full p-10 bg-gradient-to-r from-blue-700 to-purple-700 text-white flex flex-col items-center justify-center"
-          data-aos="fade-right"
+          data-aos="zoom-in"
         >
           <h2 className="text-4xl font-bold mb-4 text-left">Welcome Back!</h2>
           <p className="text-lg mb-6 text-start">

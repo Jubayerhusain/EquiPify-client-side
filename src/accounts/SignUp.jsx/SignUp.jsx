@@ -12,7 +12,7 @@ function SignUp() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    AOS.init();
+    AOS.init({ duration: 1000 });
   }, []);
 
   const validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
