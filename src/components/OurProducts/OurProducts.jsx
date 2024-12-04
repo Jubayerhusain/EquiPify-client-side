@@ -1,17 +1,12 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link, } from 'react-router-dom';
 
 function OurProduct({ products }) {
     useEffect(() => {
         AOS.init({ duration: 1000 }); // AOS animation initialization
     }, []);
-
-    const handleViewDetails = (productId) => {
-        // Replace this with navigation logic or functionality
-        alert(`View details for product ID: ${productId}`);
-    };
-
     return (
         <div className="p-4">
             <h1 className="text-2xl font-bold mb-4 text-center">
@@ -37,12 +32,12 @@ function OurProduct({ products }) {
                             Stock Status: {product.stockStatus}
                         </p>
                         <p className="text-yellow-500 font-bold mt-2">Rating: {product.rating}★</p>
-                        <button
-                            onClick={() => handleViewDetails(product.id)}
-                            className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+                        <Link
+                            to={`/products/${product._id}`}
+                            className=" w-full btn mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
                         >
                             View Details
-                        </button>
+                        </Link>
                     </div>
                 ))}
             </div>
