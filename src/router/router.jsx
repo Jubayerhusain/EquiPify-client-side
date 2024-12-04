@@ -8,6 +8,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import CategoryProducts from "../components/CategoryProducts/CategoryProducts";
 import AllEquipiment from "../NavRoute/AllEquipiment/AllEquipiment";
 import UpdateEquipmentForm from "../components/EquipmentUpdate/EquipmentUpdate";
+import ViewDetails from "./../components/ViewDetails/Viewdetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,11 +50,23 @@ const router = createBrowserRouter([
         path: "/products/:id",
         element: (
           <PrivateRoute>
-            <UpdateEquipmentForm></UpdateEquipmentForm>
+            <ViewDetails></ViewDetails>
           </PrivateRoute>
         ),
-        loader: ({params}) => fetch(`https://equipify-server-side.vercel.app/products/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://equipify-server-side.vercel.app/products/${params.id}`
+          ),
       },
+      // {
+      //   path: "/products/:id",
+      //   element: (
+      //     <PrivateRoute>
+      //       <UpdateEquipmentForm></UpdateEquipmentForm>
+      //     </PrivateRoute>
+      //   ),
+      //   loader: ({params}) => fetch(`https://equipify-server-side.vercel.app/products/${params.id}`),
+      // },
     ],
   },
 ]);
