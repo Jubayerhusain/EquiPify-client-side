@@ -101,7 +101,8 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider value={authInfo}>
       {loading ? (
-        
+        <div class="flex items-center justify-center h-screen ">
+        <div class="spinner animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-green-500"></div>
       </div>
       
       ) : (
