@@ -1,7 +1,19 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 function Navbar() {
+  const { user, signOutUser } = useContext(AuthContext);
+  const navigate = useNavigate()
+  const hundlesignOutUser=()=>{
+    signOutUser()
+    .then(res=>{
+      navigate('/signIn')
+    })
+    .catch(error=>{
+      console.log("ERROR", error.message);
+    })
+  }
   const linkCenter = (
     <>
       <li>
@@ -30,18 +42,6 @@ function Navbar() {
       </li>
       <li>
         <NavLink
-          to="/addEquipment"
-          className={({ isActive }) =>
-            isActive
-              ? "text-xl font-bold text-blue-500 hover:text-blue-600"
-              : "text-xl text-gray-700 hover:text-blue-500"
-          }
-        >
-          Add Equipment
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
           to="/myEquipmentList"
           className={({ isActive }) =>
             isActive
@@ -52,19 +52,49 @@ function Navbar() {
           My Equipment List
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/addEquipment"
+          className={({ isActive }) =>
+            isActive
+              ? "text-xl font-bold text-blue-500 hover:text-blue-600"
+              : "text-xl text-gray-700 hover:text-blue-500"
+          }
+        >
+          Add Equipment
+        </NavLink>
+      </li>
     </>
   );
 
   const linkRight = (
     <>
-      <Link to="/signIn" className="btn bg-blue-500 text-white hover:bg-blue-600">
-        Sign In
-      </Link>
-      <Link to="/signUp" className="btn bg-blue-500 text-white hover:bg-blue-600">
-        Sign Up
-      </Link>
+      {
+        !user ? (
+          <>
+            <Link
+              to="/signIn"
+              className="btn bg-blue-500 text-white hover:bg-blue-600"
+            >
+              Sign In
+            </Link>
+            <Link
+              to="/signUp"
+              className="btn bg-blue-500 text-white hover:bg-blue-600"
+            >
+              Sign Up
+            </Link>
+          </>
+        ) : <Link
+              onClick={hundlesignOutUser}
+              className="btn bg-blue-500 text-white hover:bg-blue-600"
+            >
+              Sign Out
+            </Link>
+      }
     </>
   );
+  
 
   return (
     <div className="navbar bg-gray-100 shadow-md">

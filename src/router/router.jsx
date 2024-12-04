@@ -3,6 +3,7 @@ import Layout from "../Layout/Layout";
 import Home from "../NavRoute/Home/Home";
 import SignUp from './../accounts/SignUp.jsx/SignUp';
 import SignIn from './../accounts/SignIn/SignIn';
+import AddEquipmentForm from "../components/AddEquipment/AddEquipment";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path:'/signIn',
         element: <SignIn></SignIn>
+      },
+      {
+        path:'/addEquipment',
+        element: <AddEquipmentForm></AddEquipmentForm>
       },
     ],
   },
