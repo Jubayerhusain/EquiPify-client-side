@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Swal from "sweetalert2";
+import Swal from "sweetalert2"; // Ensure this import is correct
 
 function AddEquipmentForm() {
   const { user } = useContext(AuthContext);
@@ -24,30 +24,10 @@ function AddEquipmentForm() {
       rating: parseFloat(form.rating.value),
       customization: form.customization.value,
       processingTime: form.processingTime.value,
-      stockStatus: parseInt(form.stockStatus.value, 10),
+      stockStatus: form.stockStatus.value,
       userEmail: user?.email,
       userName: user?.displayName,
     };
-
-    // Form validation
-    if (
-      !newEquipment.image ||
-      !newEquipment.itemName ||
-      !newEquipment.categoryName ||
-      !newEquipment.description ||
-      !newEquipment.price ||
-      !newEquipment.rating ||
-      !newEquipment.stockStatus
-    ) {
-      Swal.fire({
-        title: "Error!",
-        text: "All fields are required.",
-        icon: "warning",
-        confirmButtonText: "OK",
-      });
-      return;
-    }
-
     // POST the new product to database
     fetch(`https://equipify-server-side.vercel.app/products`, {
       method: "POST",
@@ -64,9 +44,17 @@ function AddEquipmentForm() {
             text: "Product added successfully!",
             icon: "success",
             confirmButtonText: "OK",
+          })
+        } else {
+          Swal.fire({
+            title: "Success!",
+            text: "Product added successfully!",
+            icon: "success",
+            confirmButtonText: "OK",
+          }).then(() => {
+            // Clear form fields after submission
+            form.reset();
           });
-          // Clear form fields after submission
-          form.reset();
         }
       })
       .catch((error) => {
@@ -90,7 +78,7 @@ function AddEquipmentForm() {
         data-aos="zoom-in"
       >
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-          Add New Product
+          Add New Equipment
         </h2>
         <form onSubmit={handleSubmitForm} className="space-y-6">
           {/* Image URL */}
@@ -220,7 +208,7 @@ function AddEquipmentForm() {
               Stock Status
             </label>
             <input
-              type="number"
+              type="text"
               id="stockStatus"
               name="stockStatus"
               placeholder="Available quantity"
@@ -251,10 +239,9 @@ function AddEquipmentForm() {
           <div>
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
-              data-aos="fade-up"
+              className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
-              Add Product
+              Add Equipment
             </button>
           </div>
         </form>

@@ -88,7 +88,7 @@ function UpdateEquipmentForm() {
         data-aos="zoom-in"
       >
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-          Update Now Product
+          Update Now Equipment
         </h2>
         <form onSubmit={handleSubmitForm} className="space-y-6">
           {/* Image URL */}

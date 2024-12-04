@@ -27,7 +27,7 @@ function OurProduct({ products }) {
                         <img
                             src={product.image}
                             alt={product.itemName}
-                            className="w-full h-40 object-cover rounded-t-lg mb-4"
+                            className="w-full h-60 object-cover rounded-t-lg mb-4"
                         />
                         <h2 className="text-lg font-semibold mb-2">{product.itemName}</h2>
                         <p className="text-gray-600">Processing Time: {product.processingTime}</p>
