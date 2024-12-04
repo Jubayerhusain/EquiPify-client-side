@@ -52,7 +52,7 @@ function SignUp() {
     createUser(email, password)
       .then((res) => {
         console.log("Successfully Signed Up!");
-        navigate(`/dashboard`);
+        navigate(`/`);
       })
       .catch((err) => {
         switch (err.code) {
@@ -67,7 +67,13 @@ function SignUp() {
   };
 
   const handleGoogleSignUp = () => {
-    // handleGoogleAuth logic here
+    handleGoogleAuth()
+      .then(() => {
+        navigate(`/`);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
