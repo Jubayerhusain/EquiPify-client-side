@@ -58,9 +58,9 @@ function ViewDetails() {
             defaultChecked
           />
         </div>
-        <div className="flex justify-between gap-4">
+        <div>
           <Link
-            to="/addEquipment"
+            to="/allSportsEquipment"
             className="btn bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
           >
             Back

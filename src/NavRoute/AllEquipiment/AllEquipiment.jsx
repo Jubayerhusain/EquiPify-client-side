@@ -45,13 +45,13 @@ function AllEquipiment() {
                 {/* Stock */}
                 <td className="px-4 py-2 border">{product.stockStatus}</td>
                 {/* Actions */}
-                <td className="px-4 py-2 border flex space-x-2">
+                <td className="py-2 border text-center">
                   {/* View Button */}
                   <Link
                     to={`/products/${product._id}`}
                     className="btn bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
                   >
-                    View
+                    View Details
                   </Link>
                 </td>
               </tr>
