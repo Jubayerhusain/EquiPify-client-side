@@ -56,7 +56,7 @@ function SignIn() {
   const handleGoogleSignIn = () => {
     handleGoogleAuth()
       .then(() => {
-        navigate(`/dashboard`);
+        navigate(`/`);
       })
       .catch((error) => {
         console.error(error);
