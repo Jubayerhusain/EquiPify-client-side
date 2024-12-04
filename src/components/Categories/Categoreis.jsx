@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Categories() {
-  const [categories, setCategories] = useState([]); // State to hold categories data
+  const [categories, setCategories] = useState([]); 
 
   useEffect(() => {
-    fetch("categories.json") // Fetching categories data
+    fetch("categories.json") 
       .then((res) => res.json())
-      .then((data) => setCategories(data)) // Setting data to state
-      .catch((error) => console.error("Error fetching categories:", error)); // Error handling
+      .then((data) => setCategories(data)) 
+      .catch((error) => console.error("Error fetching categories:", error));
   }, []);
 
   return (
