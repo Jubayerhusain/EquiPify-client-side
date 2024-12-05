@@ -6,7 +6,7 @@ import { Link, useLoaderData } from "react-router-dom";
 function AllProduct() {
   const products = useLoaderData();
   useEffect(() => {
-    AOS.init({ duration: 1000 }); // AOS animation initialization
+    AOS.init({ duration: 1000 }); 
   }, []);
   return (
     <div className="p-4">

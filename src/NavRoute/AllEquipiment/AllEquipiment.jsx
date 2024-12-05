@@ -4,15 +4,34 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function AllEquipiment() {
-    const allProduct = useLoaderData();
-    const [products, setProducts] = useState(allProduct)
+  const allProduct = useLoaderData();
+  const [products, setProducts] = useState(allProduct);
+  const [isAscending, setIsAscending] = useState(true);
+
   useEffect(() => {
     AOS.init();
   }, []);
 
+  // Sorting function
+  const sortByPrice = () => {
+    const sortedProducts = [...products].sort((a, b) => {
+      return isAscending ? a.price - b.price : b.price - a.price;
+    });
+    setProducts(sortedProducts);
+    setIsAscending(!isAscending); 
+  };
+
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">All Equipments</h1>
+      <div className="flex items-center my-10 space-x-3">
+        <h1 className="text-3xl font-bold">All Equipments</h1>
+        <button
+          onClick={sortByPrice}
+          className="btn bg-blue-400 hover:bg-blue-600 text-gray-800 hover:text-gray-200 px-4 py-2 rounded-lg"
+        >
+          {isAscending ? "Sort by Price: Low to High" : "Sort by Price: High to Low"}
+        </button>
+      </div>
       <div className="overflow-x-auto">
         <table className="table-auto w-full text-left border border-gray-300">
           <thead className="bg-gray-100">
