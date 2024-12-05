@@ -15,6 +15,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
+    loader: () => fetch(`https://equipify-server-side.vercel.app/users`), 
     children: [
       {
         path: "/",
@@ -58,6 +59,7 @@ const router = createBrowserRouter([
             <AddEquipmentForm></AddEquipmentForm>
           </PrivateRoute>
         ),
+        loader: () => fetch(`https://equipify-server-side.vercel.app/users`),
       },
       {
         path: "/products/:id",

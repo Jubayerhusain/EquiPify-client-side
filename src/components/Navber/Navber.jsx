@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
-function Navbar() {
+function Navbar({matchedUser}) {
   const { user, signOutUser } = useContext(AuthContext);
+  // Check if user or currentUser is null or undefined
   const navigate = useNavigate()
   const hundlesignOutUser=()=>{
     signOutUser()
@@ -88,14 +89,14 @@ function Navbar() {
         <>
           <div className="relative w-14 h-14">
             <img
-              src={user.photoURL}
-              alt={user.displayName || "User"}
+              src={user?.photoURL || matchedUser?.photo}
+              alt={user?.displayName || matchedUser?.name || "User"}
               className="w-full h-full rounded-full border border-gray-300"
             />
             {/* Hover Name */}
-            <div className="absolute inset-0 bg-gray-800 bg-opacity-100 flex items-center pl-1 justify-center rounded-full opacity-0 hover:opacity-100 transition-opacity">
+            <div className="absolute inset-0 bg-gray-800 bg-opacity-70 flex items-center pl-1 justify-center rounded-full opacity-0 hover:opacity-100 transition-opacity">
               <span className="text-white text-xs font-semibold">
-                {user.displayName || "User"}
+                {user.displayName || matchedUser?.name || "User"}
               </span>
             </div>
           </div>

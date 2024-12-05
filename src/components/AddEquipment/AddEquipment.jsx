@@ -3,10 +3,13 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Swal from "sweetalert2"; // Ensure this import is correct
+import { useLoaderData } from 'react-router-dom';
 
 function AddEquipmentForm() {
   const { user } = useContext(AuthContext);
-
+  const currentUser = useLoaderData();
+  const matchedUser = currentUser.find((u) => u.email === user.email);
+  console.log("hey juabyer this is your current user",matchedUser.name);
   useEffect(() => {
     AOS.init();
   }, []);
@@ -230,7 +233,7 @@ function AddEquipmentForm() {
             <label className="text-gray-600">User Name</label>
             <input
               type="text"
-              value={user?.displayName || ""}
+              value={user?.displayName || matchedUser?.name || "name not found"}
               readOnly
               className="w-full px-4 py-2 border rounded-lg bg-gray-100"
             />
