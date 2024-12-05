@@ -47,9 +47,9 @@ function MyEquipmentList() {
   }
 
   return (
-    <div className="min-h-[620px] p-4">
-      <h1 className="text-xl font-bold">My Equipment List</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+    <div className="min-h-[620px] p-4 mx-10">
+      <h1 className="text-2xl text-gray-700 my-9 font-bold">My Equipment List ({products.length})</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
         {products.map((product) => (
           <div
             key={product.id}
