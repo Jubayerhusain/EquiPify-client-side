@@ -12,6 +12,7 @@ function MyEquipmentList() {
   useEffect(() => {
     AOS.init({ duration: 1000 });
     if (user && user.email) {
+        setLoading(true);
       fetch(
         `https://equipify-server-side.vercel.app/products/email/${user.email}`
       )
@@ -24,6 +25,8 @@ function MyEquipmentList() {
           setError(err.message);
           setLoading(false);
         });
+    } else {
+      setLoading(false);
     }
   }, [user]);
 
@@ -93,7 +96,7 @@ function MyEquipmentList() {
                 View Details
               </Link>
               <Link
-                to={`/products/${product._id}`}
+                to={`/productsUpdate/${product._id}`}
                 className="btn mt-4 bg-green-500 text-white py-2 px-4 rounded-xl hover:bg-green-600 transition-colors"
               >
                 Update

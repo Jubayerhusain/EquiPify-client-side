@@ -81,15 +81,15 @@ const router = createBrowserRouter([
             `https://equipify-server-side.vercel.app/products/${params.id}`
           ),
       },
-      // {
-      //   path: "/products/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <UpdateEquipmentForm></UpdateEquipmentForm>
-      //     </PrivateRoute>
-      //   ),
-      //   loader: ({params}) => fetch(`https://equipify-server-side.vercel.app/products/${params.id}`),
-      // },
+      {
+        path: "/productsUpdate/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateEquipmentForm></UpdateEquipmentForm>
+          </PrivateRoute>
+        ),
+        loader: ({params}) => fetch(`https://equipify-server-side.vercel.app/products/${params.id}`),
+      },
     ],
   },
 ]);
