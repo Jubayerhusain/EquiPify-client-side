@@ -27,6 +27,21 @@ function SignUp() {
     const password = event.target.password.value.trim();
     const photo = event.target.photo.value.trim();
 
+    // POST: fetch the user db collection url and post the user information
+    const userData={name,photo,email}
+    fetch('https://equipify-server-side.vercel.app/users', {
+      method:"POST",
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(userData)
+    }) 
+    .then(res=>res.json())
+    .then(data=>console.log(data))
+    .catch(error=>{
+      console.log('ERROR', error.message);
+    })
+
     let tempErrors = {};
 
     if (!name) {

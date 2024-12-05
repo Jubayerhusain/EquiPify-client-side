@@ -10,6 +10,7 @@ import AllEquipiment from "../NavRoute/AllEquipiment/AllEquipiment";
 import UpdateEquipmentForm from "../components/EquipmentUpdate/EquipmentUpdate";
 import ViewDetails from "./../components/ViewDetails/Viewdetails";
 import AllProduct from "../components/AllProduct/AllProduct";
+import MyEquipmentList from "../NavRoute/MyEquipmentList/MyEquipmentList";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         element: <AllEquipiment></AllEquipiment>,
         // loader: () => fetch(`https://equipify-server-side.vercel.app/products`),
         loader: () => fetch(`https://equipify-server-side.vercel.app/products`),
+      },
+      {
+        path:'/myEquipmentList',
+        element: <MyEquipmentList></MyEquipmentList>
       },
       {
         path: "/signUp",

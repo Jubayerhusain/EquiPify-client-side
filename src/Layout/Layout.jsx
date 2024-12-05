@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer';
 
 function Layout() {
     return (
-        <div>
+        <div className='bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50'>
             <Navber></Navber>
             <Outlet />
             <Footer></Footer>
@@ -13,4 +13,4 @@ function Layout() {
     )
 }
 
-export default Layout
+export default Layout;
