@@ -11,9 +11,11 @@ import UpdateEquipmentForm from "../components/EquipmentUpdate/EquipmentUpdate";
 import ViewDetails from "./../components/ViewDetails/Viewdetails";
 import AllProduct from "../components/AllProduct/AllProduct";
 import MyEquipmentList from "../NavRoute/MyEquipmentList/MyEquipmentList";
+import ErrorPage from "../components/ErrorPage/Errorpage";
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage></ErrorPage>,
     element: <Layout></Layout>,
     loader: () => fetch(`https://equipify-server-side.vercel.app/users`),
     children: [
