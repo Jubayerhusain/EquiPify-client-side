@@ -18,7 +18,7 @@ function Categories() {
         {categories.map((category) => (
           <NavLink
             key={category.id}
-            to={`/category`}
+            to={`/products/${category.categoryName}`}
             // to={`/category/${category.categoryName}`}
             className={({ isActive }) =>
               `block w-full text-center text-lg capitalize font-semibold px-4 py-2 rounded-lg text-gray-700 bg-blue-200 ${

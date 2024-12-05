@@ -1,9 +1,13 @@
 import React from 'react'
+import { useLoaderData } from 'react-router-dom'
+import Categories from './../Categories/Categoreis';
 
 function CategoryProducts() {
+    const categories = useLoaderData();
+    console.log(categories);
     return (
         <div>
-            this is a product category products
+            <h2>Categories {categories.length}</h2>
         </div>
     )
 }
