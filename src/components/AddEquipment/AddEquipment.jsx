@@ -6,8 +6,17 @@ import Swal from "sweetalert2"; // Ensure this import is correct
 import { useLoaderData } from 'react-router-dom';
 
 function AddEquipmentForm() {
-  const { user } = useContext(AuthContext);
+  const { user,loading } = useContext(AuthContext);
   const currentUser = useLoaderData();
+  // Loading or invalid data handling
+  if (loading || !currentUser || !Array.isArray(currentUser)) {
+    return (
+      <div class="flex items-center justify-center h-screen ">
+        <div class="spinner animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
+      </div>
+    );
+  }
+
   const matchedUser = currentUser.find((u) => u.email === user.email);
   console.log("hey juabyer this is your current user",matchedUser.name);
   useEffect(() => {

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css"; // AOS animation styles
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -66,31 +67,64 @@ function SignUp() {
 
     createUser(email, password)
       .then((res) => {
-        console.log("Successfully Signed Up!");
+        toast.error("Successfully Signed Up!");
         navigate(`/`);
       })
       .catch((err) => {
         switch (err.code) {
           case "auth/email-already-in-use":
-            alert("This email is already in use!");
+            toast.error("This email is already in use!");
             break;
           default:
-            alert("Something went wrong. Try again!");
+            toast.error("Something went wrong. Try again!");
         }
         console.error("ERROR:", err.message);
       });
   };
 
+  // const handleGoogleSignUp = () => {
+  //   handleGoogleAuth()
+  //     .then(() => {
+  //       navigate(`/`);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
   const handleGoogleSignUp = () => {
     handleGoogleAuth()
-      .then(() => {
-        navigate(`/`);
+      .then((result) => {
+        const { displayName, email, photoURL } = result.user;
+  
+        // User data object
+        const userData = {
+          name: displayName,
+          email: email,
+          photo: photoURL
+        };
+  
+        // Post user data to the database
+        fetch("https://equipify-server-side.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log("User added to database:", data);
+            navigate(`/`);
+          })
+          .catch((error) => {
+            toast.error("Failed to add user to database:", error.message);
+          });
       })
       .catch((error) => {
-        console.error(error);
+        toast.error("Google Sign-In failed:", error.message);
       });
   };
-
+  
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600"

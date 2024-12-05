@@ -4,19 +4,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import toast from "react-hot-toast";
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
-  const { signInUser, handleGoogleAuth } = useContext(AuthContext);
+  const { signInUser, handleGoogleAuth,loading } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
-
   const validatePassword = (password) =>
-    /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(password);  
+    /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(password);
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -55,13 +55,46 @@ function SignIn() {
 
   const handleGoogleSignIn = () => {
     handleGoogleAuth()
-      .then(() => {
-        navigate(`/`);
+      .then((result) => {
+        const { displayName, email, photoURL } = result.user;
+
+        // User data object
+        const userData = {
+          name: displayName,
+          email: email,
+          photo: photoURL,
+        };
+
+        // Post user data to the database
+        fetch("https://equipify-server-side.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log("User added to database:", data);
+            navigate(`/`);
+          })
+          .catch((error) => {
+            toast.error("Failed to add user to database:", error.message);
+          });
       })
       .catch((error) => {
-        console.error(error);
+        toast.error("Google Sign-In failed:", error.message);
       });
   };
+
+  //   handleGoogleAuth()
+  //     .then(() => {
+  //       navigate(`/`);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
@@ -83,7 +116,11 @@ function SignIn() {
 
         {/* Right Side: Form */}
         <div className="lg:w-1/2 w-full p-10">
-          <form onSubmit={handleSignIn} className="space-y-6" data-aos="fade-left">
+          <form
+            onSubmit={handleSignIn}
+            className="space-y-6"
+            data-aos="fade-left"
+          >
             <h1 className="text-3xl font-bold text-gray-800">Sign In</h1>
             <p className="text-gray-500 text-sm">
               Enter your credentials to access your account.

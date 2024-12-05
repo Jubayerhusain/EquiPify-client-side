@@ -25,7 +25,7 @@ function AllEquipiment() {
     <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50">
       <div className="container  mx-auto py-8">
         <div className="flex items-center my-10 space-x-3">
-          <h1 className="text-3xl font-bold">All Equipments</h1>
+          <h1 className="text-3xl font-bold">All Equipments </h1>
           <button
             onClick={sortByPrice}
             className="btn bg-blue-400 hover:bg-blue-600 text-gray-800 hover:text-gray-200 px-4 py-2 rounded-lg"
