@@ -21,8 +21,8 @@ function Categories() {
             to={`/category`}
             // to={`/category/${category.categoryName}`}
             className={({ isActive }) =>
-              `block w-full text-center capitalize font-semibold px-4 py-2 rounded-lg text-gray-700 bg-blue-200 ${
-                isActive ? "bg-blue-600" : "bg-gray-400"
+              `block w-full text-center text-lg capitalize font-semibold px-4 py-2 rounded-lg text-gray-700 bg-blue-200 ${
+                isActive ? "bg-blue-500 text-gray-200" : "bg-blue-100"
               } hover:bg-blue-500 transition duration-200`
             }
           >

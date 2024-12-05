@@ -2,12 +2,12 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="mt-9 bg-gradient-to-r via-slate-800 from-gray-500  to-black/70 text-white py-10">
+    <footer className="mt-9 bg-blue-600  text-gray-200 py-10">
       <div className="container mx-auto px-6 lg:px-20">
         {/* Logo and Tagline */}
         <div className="flex flex-col items-center text-center mb-8">
           <h1 className="text-4xl font-bold mb-2">Equipify</h1>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-300">
             Your one-stop destination for premium sports equipment.
           </p>
         </div>
@@ -38,7 +38,7 @@ function Footer() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-gray-400 hover:text-blue-400"
+              className="w-6 h-6 text-gray-300 hover:text-blue-400"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -53,7 +53,7 @@ function Footer() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-gray-400 hover:text-blue-600"
+              className="w-6 h-6 text-gray-300 hover:text-blue-600"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -68,7 +68,7 @@ function Footer() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-gray-400 hover:text-pink-500"
+              className="w-6 h-6 text-gray-300 hover:text-pink-500"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -78,7 +78,7 @@ function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="text-center text-gray-500">
+        <div className="text-center text-gray-300">
           <p>Copyright © {new Date().getFullYear()} Equipify. All Rights Reserved.</p>
         </div>
       </div>
