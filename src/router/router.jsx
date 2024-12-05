@@ -20,12 +20,10 @@ const router = createBrowserRouter([
         loader: () => fetch(`https://equipify-server-side.vercel.app/products`),
         children: [
           {
-            path: "/products/:categoryName",
+            path: "/products/category/:categoryName",
             element: <CategoryProducts></CategoryProducts>,
             loader: ({ params }) =>
-              fetch(
-                `https://equipify-server-side.vercel.app/products/${params.categoryName}`
-              ),
+              fetch(`https://equipify-server-side.vercel.app/products/category/${params.categoryName}`),
           },
         ],
       },

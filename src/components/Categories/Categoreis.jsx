@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Categories() {
-  const [categories, setCategories] = useState([]); 
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("categories.json") 
+    fetch("/categories.json")
       .then((res) => res.json())
-      .then((data) => setCategories(data)) 
+      .then((data) => setCategories(data))
       .catch((error) => console.error("Error fetching categories:", error));
   }, []);
 
@@ -18,12 +18,13 @@ function Categories() {
         {categories.map((category) => (
           <NavLink
             key={category.id}
-            to={`/products/${category.categoryName}`}
-            // to={`/category/${category.categoryName}`}
+            to={`/products/category/${category.categoryName}`} // Ensure path matches the route
             className={({ isActive }) =>
-              `block w-full text-center text-lg capitalize font-semibold px-4 py-2 rounded-lg text-gray-700 bg-blue-200 ${
-                isActive ? "bg-blue-500 text-gray-200" : "bg-blue-100"
-              } hover:bg-blue-500 transition duration-200`
+              `block w-full text-center text-lg capitalize font-semibold px-4 py-2 rounded-lg ${
+                isActive
+                  ? "bg-blue-500 text-gray-200"
+                  : "bg-blue-100 text-gray-700"
+              } hover:bg-blue-300 hover:text-gray-600 transition duration-200`
             }
           >
             {category.categoryName}
