@@ -52,8 +52,8 @@ function ViewDetails() {
           </p>
 
           <Link
-            to="/allSportsEquipment"
-            className="btn bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600"
+            to="/"
+            className="btn bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600"
           >
             Back
           </Link>

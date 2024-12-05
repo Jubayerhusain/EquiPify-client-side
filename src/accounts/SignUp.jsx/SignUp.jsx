@@ -81,16 +81,6 @@ function SignUp() {
         console.error("ERROR:", err.message);
       });
   };
-
-  // const handleGoogleSignUp = () => {
-  //   handleGoogleAuth()
-  //     .then(() => {
-  //       navigate(`/`);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
   const handleGoogleSignUp = () => {
     handleGoogleAuth()
       .then((result) => {

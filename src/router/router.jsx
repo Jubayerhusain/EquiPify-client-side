@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
-    loader: () => fetch(`https://equipify-server-side.vercel.app/users`), 
+    loader: () => fetch(`https://equipify-server-side.vercel.app/users`),
     children: [
       {
         path: "/",
@@ -26,12 +26,16 @@ const router = createBrowserRouter([
             path: "/products/category/:categoryName",
             element: <CategoryProducts></CategoryProducts>,
             loader: ({ params }) =>
-              fetch(`https://equipify-server-side.vercel.app/products/category/${params.categoryName}`),
-          },{
-            path: '/',
+              fetch(
+                `https://equipify-server-side.vercel.app/products/category/${params.categoryName}`
+              ),
+          },
+          {
+            path: "/",
             element: <AllProduct></AllProduct>,
-            loader: () => fetch(`https://equipify-server-side.vercel.app/products`),
-          }
+            loader: () =>
+              fetch(`https://equipify-server-side.vercel.app/products`),
+          },
         ],
       },
       {
@@ -41,8 +45,12 @@ const router = createBrowserRouter([
         loader: () => fetch(`https://equipify-server-side.vercel.app/products`),
       },
       {
-        path:'/myEquipmentList',
-        element: <MyEquipmentList></MyEquipmentList>
+        path: "/myEquipmentList",
+        element: (
+          <PrivateRoute>
+            <MyEquipmentList></MyEquipmentList>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/signUp",
