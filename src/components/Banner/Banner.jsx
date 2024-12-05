@@ -35,7 +35,7 @@ function Banner() {
                 High-quality cricket gear tailored for all levels.
               </p>
               <Link
-                to={`/products/`}
+                to={`/`}
                 className=" btn mt-4 border-none bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
               >
                 View Details
@@ -60,7 +60,7 @@ function Banner() {
                 Top-notch footballs, shoes, and accessories for matches.
               </p>
               <Link
-                to={`/products/`}
+                to={`/`}
                 className=" btn mt-4 border-none bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
               >
                 View Details
@@ -85,7 +85,7 @@ function Banner() {
                 Premium hockey sticks, pucks, and safety gear.
               </p>
               <Link
-                to={`/products/`}
+                to={`/`}
                 className=" btn mt-4 border-none bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
               >
                 View Details

@@ -3,6 +3,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Swal from "sweetalert2";
 function MyEquipmentList() {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
@@ -12,7 +13,7 @@ function MyEquipmentList() {
   useEffect(() => {
     AOS.init({ duration: 1000 });
     if (user && user.email) {
-        setLoading(true);
+      setLoading(true);
       fetch(
         `https://equipify-server-side.vercel.app/products/email/${user.email}`
       )
@@ -45,10 +46,37 @@ function MyEquipmentList() {
   if (products.length === 0) {
     return <div>No equipment found for your email.</div>;
   }
+const hundleDelete = (_id) => {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`https://equipify-server-side.vercel.app/products/${_id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            setProducts(products.filter((product) => product._id !== _id));
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          }
+        })
+        .catch(() => Swal.fire("Error!", "Something went wrong.", "error"));
+    }
+  });
+};
 
   return (
     <div className="min-h-[620px] p-4 mx-10">
-      <h1 className="text-2xl text-gray-700 my-9 font-bold">My Equipment List ({products.length})</h1>
+      <h1 className="text-2xl text-gray-700 my-9 font-bold">
+        My Equipment List ({products.length})
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
         {products.map((product) => (
           <div
@@ -102,7 +130,7 @@ function MyEquipmentList() {
                 Update
               </Link>
               <Link
-                to={`/products/${product._id}`}
+                onClick={() => hundleDelete(product._id)}
                 className="btn mt-4 bg-red-500 text-white py-2 px-4 rounded-xl hover:bg-red-600 transition-colors"
               >
                 Delete

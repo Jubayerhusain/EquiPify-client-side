@@ -3,10 +3,10 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Swal from "sweetalert2"; // Ensure this import is correct
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from "react-router-dom";
 
 function AddEquipmentForm() {
-  const { user,loading } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const currentUser = useLoaderData();
   // Loading or invalid data handling
   if (loading || !currentUser || !Array.isArray(currentUser)) {
@@ -18,7 +18,10 @@ function AddEquipmentForm() {
   }
 
   const matchedUser = currentUser.find((u) => u.email === user.email);
-  console.log("hey juabyer this is your current user",matchedUser.name);
+  console.log(
+    "hey juabyer this is your current user",
+    matchedUser ? matchedUser.name : "User not found"
+  );
   useEffect(() => {
     AOS.init();
   }, []);
@@ -56,7 +59,7 @@ function AddEquipmentForm() {
             text: "Product added successfully!",
             icon: "success",
             confirmButtonText: "OK",
-          })
+          });
         } else {
           Swal.fire({
             title: "Success!",
@@ -242,7 +245,11 @@ function AddEquipmentForm() {
             <label className="text-gray-600">User Name</label>
             <input
               type="text"
-              value={user?.displayName || matchedUser?.name || "name not found"}
+              value={
+                user?.displayName || matchedUser
+                  ? matchedUser.name
+                  : "name not found"
+              }
               readOnly
               className="w-full px-4 py-2 border rounded-lg bg-gray-100"
             />
