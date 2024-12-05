@@ -44,33 +44,52 @@ function MyEquipmentList() {
   }
 
   if (products.length === 0) {
-    return <div>No equipment found for your email.</div>;
+    return (
+      <div className="min-h-[500px] ">
+        <div className="text-center font-bold text-gray-600 text-3xl mt-10">
+          No equipment found for your email.
+        </div>
+        <div className="">
+        <div className="flex w-96 mx-auto my-10 flex-col gap-4">
+          <div className="skeleton h-44 w-full"></div>
+          <div className="skeleton h-4 w-32"></div>
+          <div className="skeleton h-4 w-full"></div>
+          <div className="skeleton h-4 w-full"></div>
+        </div><div className="flex w-96 mx-auto my-10 flex-col gap-4">
+          <div className="skeleton h-44 w-full"></div>
+          <div className="skeleton h-4 w-32"></div>
+          <div className="skeleton h-4 w-full"></div>
+          <div className="skeleton h-4 w-full"></div>
+        </div>
+        </div>
+      </div>
+    );
   }
-const hundleDelete = (_id) => {
-  Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      fetch(`https://equipify-server-side.vercel.app/products/${_id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            setProducts(products.filter((product) => product._id !== _id));
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-          }
+  const hundleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://equipify-server-side.vercel.app/products/${_id}`, {
+          method: "DELETE",
         })
-        .catch(() => Swal.fire("Error!", "Something went wrong.", "error"));
-    }
-  });
-};
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              setProducts(products.filter((product) => product._id !== _id));
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          })
+          .catch(() => Swal.fire("Error!", "Something went wrong.", "error"));
+      }
+    });
+  };
 
   return (
     <div className="min-h-[620px] p-4 mx-10">
