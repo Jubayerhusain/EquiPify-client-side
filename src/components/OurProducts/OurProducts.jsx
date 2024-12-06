@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link, } from 'react-router-dom';
+import { Fade } from 'react-awesome-reveal';
 
 function OurProduct({ products }) {
     useEffect(() => {
@@ -9,9 +10,11 @@ function OurProduct({ products }) {
     }, []);
     return (
         <div className="p-4">
+            <Fade direction='down'>
             <h1 className="text-4xl my-5 text-gray-700 font-bold mb-4 text-center">
                 Popular Products
             </h1>
+            </Fade>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-14">
                 {products.slice(0, 6).map((product, index) => (
                     <div

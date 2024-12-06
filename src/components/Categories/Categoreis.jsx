@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Fade } from "react-awesome-reveal";
 import { NavLink } from "react-router-dom";
 
 function Categories() {
@@ -13,7 +14,9 @@ function Categories() {
 
   return (
     <div className="container mx-auto p-6">
+      <Fade direction="down">
       <h2 className="text-2xl font-bold text-center mb-8">Product Categories</h2>
+      </Fade>
       <nav className="flex flex-col items-start gap-4">
         <NavLink to={'/'} className={({ isActive }) =>
               `block w-full text-center text-lg capitalize font-semibold px-4 py-2 rounded-lg ${
@@ -36,7 +39,9 @@ function Categories() {
               } hover:bg-blue-300 hover:text-gray-600 transition duration-200`
             }
           >
+            <Fade direction="up" triggerOnce>
             {category.categoryName}
+            </Fade>
           </NavLink>
         ))}
       </nav>

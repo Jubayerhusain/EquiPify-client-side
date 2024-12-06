@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FcRating } from "react-icons/fc";
+import { Fade } from "react-awesome-reveal";
 
 function ViewDetails() {
   // Load the specific product data
@@ -13,7 +13,8 @@ function ViewDetails() {
   }, []);
 
   return (
-    <div className="container  mx-auto py-8">
+    <Fade direction="up" triggerOnce>
+      <div className="container  mx-auto py-8">
       <div
         className="flex flex-col h-[700px] lg:flex-row items-center bg-white rounded-lg shadow-lg overflow-hidden"
         data-aos="fade-up"
@@ -60,6 +61,7 @@ function ViewDetails() {
         </div>
       </div>
     </div>
+    </Fade>
   );
 }
 

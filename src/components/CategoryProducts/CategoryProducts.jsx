@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 function categorycategorys() {
   const categories = useLoaderData();
@@ -7,9 +8,11 @@ function categorycategorys() {
 
   return (
     <div>
-      <h2 className="text-center rounded-md my-8 block bg-blue-200 text-2xl font-bold text-gray-700 py-3 ">
-        Available categorys:({categories.length})
-      </h2>
+      <Fade direction="down">
+        <h2 className="text-center rounded-md my-8 block bg-blue-200 text-2xl font-bold text-gray-700 py-3 ">
+          Available Equipment:({categories.length})
+        </h2>
+      </Fade>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 my-14">
         {categories.map((category) => (
           <div
@@ -17,7 +20,11 @@ function categorycategorys() {
             key={category._id}
           >
             <figure>
-            <img className="w-full h-60 object-cover rounded-t-lg mb-4" src={category.image} alt={category.categoryName} />
+              <img
+                className="w-full h-60 object-cover rounded-t-lg mb-4"
+                src={category.image}
+                alt={category.categoryName}
+              />
             </figure>
             <div className="card-body">
               <h2 className="card-title">
