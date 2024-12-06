@@ -30,7 +30,7 @@ const SportsBlog = () => {
             <Slide direction={index % 2 === 0 ? "left" : "right"} triggerOnce key={blog.id}>
               <div
                 data-aos="fade-up"
-                className="group relative bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
+                className="group h-[450px] relative bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
               >
                 <div className="overflow-hidden">
                   <img
