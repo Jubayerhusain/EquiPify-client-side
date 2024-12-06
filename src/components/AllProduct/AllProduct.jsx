@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link, useLoaderData } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 
 function AllProduct() {
   const products = useLoaderData();
   useEffect(() => {
-    AOS.init({ duration: 1000 }); 
+    AOS.init({ duration: 1000 });
   }, []);
   return (
     <div className="p-4">
@@ -46,11 +47,13 @@ function AllProduct() {
               Rating: {product.rating}★
             </p>
             <Link
+              id="view"
               to={`/products/${product._id}`}
               className=" w-full btn mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
             >
               View Details
             </Link>
+            <Tooltip anchorSelect="#view" content="Your can see all details" />
           </div>
         ))}
       </div>

@@ -36,10 +36,15 @@ function Banner() {
               </p>
               <Link
                 to={`/`}
+                id="view1"
                 className=" btn mt-4 border-none bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
               >
                 View Details
               </Link>
+              <Tooltip
+                anchorSelect="#view1"
+                content="Can see on this categories Equipment"
+              />
             </div>
           </div>
         </SwiperSlide>
@@ -61,10 +66,15 @@ function Banner() {
               </p>
               <Link
                 to={`/`}
+                id="view2"
                 className=" btn mt-4 border-none bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
               >
                 View Details
               </Link>
+              <Tooltip
+                anchorSelect="#view2"
+                content="Can see on this categories Equipment"
+              />
             </div>
           </div>
         </SwiperSlide>
@@ -86,10 +96,15 @@ function Banner() {
               </p>
               <Link
                 to={`/`}
+                id="view3"
                 className=" btn mt-4 border-none bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
               >
                 View Details
               </Link>
+              <Tooltip
+                anchorSelect="#view3"
+                content="Can see on this categories Equipment"
+              />
             </div>
           </div>
         </SwiperSlide>
