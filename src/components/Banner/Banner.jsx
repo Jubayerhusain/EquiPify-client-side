@@ -24,7 +24,7 @@ function Banner() {
         <SwiperSlide>
           <div className="relative w-full h-full z-10 rounded-lg">
             <img
-              src="https://i.ibb.co.com/3Y9wkDQ/premium-kashmir-willow-full-kit-with-spolfy-stump-and-ultimate-original-imag6q482qja5zk9.webp"
+              src="https://i.ibb.co.com/tBmtktW/pexels-case-originals-3800517.jpg"
               alt="Career Counseling"
               className="w-full h-full object-cover rounded-lg"
             />
@@ -54,7 +54,7 @@ function Banner() {
         <SwiperSlide>
           <div className="relative w-full h-full z-10 rounded-lg">
             <img
-              src="https://i.ibb.co.com/yFDQCxx/soccer-boots-and-ball.jpg"
+              src="https://i.ibb.co.com/Vtcc6K0/pexels-aleksandar069-3684122.jpg"
               alt="Expert Guidance"
               className="w-full h-full object-cover rounded-lg"
             />
@@ -84,7 +84,7 @@ function Banner() {
         <SwiperSlide>
           <div className="relative w-full h-full z-10 rounded-lg">
             <img
-              src="https://i.ibb.co.com/fnZ9M47/61-DVwva0-d-L-AC-UF894-1000-QL80.jpg"
+              src="https://i.ibb.co.com/93Gyx5J/pexels-franco-monsalvo-252430633-29658106.jpg"
               alt="Join Us"
               className="w-full h-full object-cover rounded-lg"
             />
