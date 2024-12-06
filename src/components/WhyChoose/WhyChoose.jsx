@@ -48,7 +48,7 @@ const WhyEquipify = () => {
           {points.map((point, index) => (
             <Slide direction={index % 2 === 0 ? "left" : "right"} triggerOnce key={index}>
               <div
-                className="h-[300px] bg-white shadow-lg rounded-lg p-6 text-center transition-transform transform hover:scale-105"
+                className="h-[330px] bg-white shadow-lg rounded-lg p-6 text-center transition-transform transform hover:scale-105"
                 data-aos="fade-up"
               >
                 <div className="mb-4 flex justify-center">{point.icon}</div>
