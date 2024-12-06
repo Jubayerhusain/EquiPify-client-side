@@ -25,7 +25,7 @@ function UpdateEquipmentForm() {
       rating: parseFloat(form.rating.value),
       customization: form.customization.value,
       processingTime: form.processingTime.value,
-      stockStatus: parseInt(form.stockStatus.value, 10),
+      stockStatus: form.stockStatus.value,
       userEmail: user?.email,
       userName: user?.displayName,
     };
@@ -59,23 +59,23 @@ function UpdateEquipmentForm() {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) {
-          Swal.fire({
-            title: "Success!",
-            text: "updated successfully!",
-            icon: "success",
-            confirmButtonText: "Cool",
-          });
-        }
-      })
-      .catch((error) => {
-        Swal.fire({
-          title: "Error!",
-          text: "Something went wrong.",
-          icon: "error",
-          confirmButtonText: "OK",
-        });
+          if (data.modifiedCount > 0) {
+            Swal.fire({
+              title: "Success!",
+              text: "Equipment Update successfully!",
+              icon: "success",
+              confirmButtonText: "OK",
+            });
+          } else {
+            Swal.fire({
+              title: "Success!",
+              text: "Equipment Update successfully!",
+              icon: "success",
+              confirmButtonText: "OK",
+            })
+          }
       });
+
   };
 
   return (
@@ -226,7 +226,7 @@ function UpdateEquipmentForm() {
               Stock Status
             </label>
             <input
-              type="number"
+              type="text"
               id="stockStatus"
               name="stockStatus"
               defaultValue={product.stockStatus}
