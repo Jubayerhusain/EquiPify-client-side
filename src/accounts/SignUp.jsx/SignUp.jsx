@@ -38,9 +38,11 @@ function SignUp() {
       body:JSON.stringify(userData)
     }) 
     .then(res=>res.json())
-    .then(data=>console.log(data))
+    .then(data=>{
+      // console.log(data)
+    })
     .catch(error=>{
-      console.log('ERROR', error.message);
+      // console.log('ERROR', error.message);
     })
 
     let tempErrors = {};

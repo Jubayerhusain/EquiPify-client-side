@@ -18,10 +18,10 @@ function AddEquipmentForm() {
   }
 
   const matchedUser = currentUser.find((u) => u.email === user.email);
-  console.log(
-    "hey juabyer this is your current user",
-    matchedUser ? matchedUser.name : "User not found"
-  );
+  // console.log(
+  //   "hey juabyer this is your current user",
+  //   matchedUser ? matchedUser.name : "User not found"
+  // );
   useEffect(() => {
     AOS.init();
   }, []);

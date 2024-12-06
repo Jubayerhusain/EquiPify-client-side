@@ -37,7 +37,7 @@ function SignIn() {
 
     signInUser(email, password)
       .then(() => {
-        console.log("Successfully Signed In!");
+        // console.log("Successfully Signed In!");
         navigate("/");
       })
       .catch((err) => {

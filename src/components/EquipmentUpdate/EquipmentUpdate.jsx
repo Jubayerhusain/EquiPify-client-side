@@ -8,7 +8,7 @@ import { useLoaderData } from "react-router-dom";
 function UpdateEquipmentForm() {
   const { user } = useContext(AuthContext);
   const product = useLoaderData();
-  console.log(product);
+  // console.log(product);
   useEffect(() => {
     AOS.init();
   }, []);

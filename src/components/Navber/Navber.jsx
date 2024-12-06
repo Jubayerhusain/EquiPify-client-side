@@ -12,7 +12,7 @@ function Navbar({ matchedUser }) {
         navigate("/signIn");
       })
       .catch((error) => {
-        console.log("ERROR", error.message);
+        // console.log("ERROR", error.message);
       });
   };
   const linkCenter = (

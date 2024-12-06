@@ -5,7 +5,7 @@ import { Tooltip } from "react-tooltip";
 
 function CategoryProducts() {
   const categories = useLoaderData();
-  console.log(categories);
+  // console.log(categories);
 
   return (
     <div>
