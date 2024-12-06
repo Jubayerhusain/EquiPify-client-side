@@ -24,12 +24,12 @@ function SignIn() {
     const password = event.target.password.value.trim();
 
     if (!email || !password) {
-      alert("Please fill in all fields!");
+      toast.error("Please fill in all fields!");
       return;
     }
 
     if (!validatePassword(password)) {
-      alert(
+      toast.error(
         "Password must be at least 6 characters long and include one uppercase, one lowercase, one digit, and one special character."
       );
       return;
@@ -45,9 +45,9 @@ function SignIn() {
           err.code === "auth/wrong-password" ||
           err.code === "auth/user-not-found"
         ) {
-          alert("Invalid email or password!");
+          toast.error("Invalid email or password!");
         } else {
-          alert("Something went wrong. Please try again!");
+          toast.error("Something went wrong. Please try again!");
         }
         console.error("ERROR:", err.message);
       });

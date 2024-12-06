@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 
 function Banner() {
   return (

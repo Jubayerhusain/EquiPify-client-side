@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Fade } from "react-awesome-reveal";
+import { Tooltip } from "react-tooltip";
 function AllEquipiment() {
   const allProduct = useLoaderData();
   const [products, setProducts] = useState(allProduct);
@@ -76,11 +77,14 @@ function AllEquipiment() {
                     <td className="py-2 border text-center">
                       {/* View Button */}
                       <Link
+                      id="view1"
                         to={`/products/${product._id}`}
                         className="btn bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         View Details
                       </Link>
+                      <Tooltip anchorSelect="#view1" content="Can see details on this Equipment" />
+
                     </td>
                   </tr>
                 ))}
