@@ -69,7 +69,7 @@ function SignUp() {
 
     createUser(email, password)
       .then((res) => {
-        toast.error("Successfully Signed Up!");
+        toast.success('Successfully Signed Up!')
         navigate(`/`);
       })
       .catch((err) => {
