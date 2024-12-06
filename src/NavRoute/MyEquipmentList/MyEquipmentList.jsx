@@ -110,14 +110,14 @@ function MyEquipmentList() {
             <div
               key={product.id}
               data-aos="fade-up"
-              className="flex flex-col justify-between h-full bg-white card shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow duration-300"
+              className="group relative p-5 bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
             >
               <img
                 src={product.image}
                 alt={product.itemName}
-                className="w-full h-60 object-cover rounded-t-lg mb-4"
+                className="w-full h-60 rounded-md object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <p className="text-lg text-gray-600 italic mb-6">
+              <p className="text-lg mt-5 text-gray-600 italic mb-6">
                 <strong>Description:</strong>{" "}
                 {product.description || "No description available."}
               </p>
@@ -146,7 +146,7 @@ function MyEquipmentList() {
               </p>
               <div className="flex justify-between items-center">
                 <Link
-                id="view"
+                  id="view"
                   to={`/products/${product._id}`}
                   className="btn mt-4 bg-blue-500 text-white py-2 px-4 rounded-xl hover:bg-blue-600 transition-colors"
                 >
@@ -157,7 +157,7 @@ function MyEquipmentList() {
                   content="Your can see all details"
                 />
                 <Link
-                id="update"
+                  id="update"
                   to={`/productsUpdate/${product._id}`}
                   className="btn mt-4 bg-green-500 text-white py-2 px-4 rounded-xl hover:bg-green-600 transition-colors"
                 >
@@ -180,6 +180,7 @@ function MyEquipmentList() {
                   content="Your can delete this Equipment"
                 />
               </div>
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-500"></div>
             </div>
           ))}
         </div>

@@ -77,13 +77,13 @@ function AllEquipiment() {
                     <td className="py-2 border text-center">
                       {/* View Button */}
                       <Link
-                      id="view1"
+                      id={`view-${product._id}`}
                         to={`/products/${product._id}`}
                         className="btn bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         View Details
                       </Link>
-                      <Tooltip anchorSelect="#view1" content="Can see details on this Equipment" />
+                      <Tooltip anchorSelect={`#view-${product._id}`} content="Can see details on this Equipment" />
 
                     </td>
                   </tr>

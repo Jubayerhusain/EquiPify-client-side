@@ -3,6 +3,8 @@ import Banner from "../../components/Banner/Banner";
 import OurProduct from "../../components/OurProducts/OurProducts";
 import Categorories from "../../components/Categories/Categoreis";
 import { Outlet, useLoaderData } from "react-router-dom";
+import SportsBlog from "../../components/SportsBlog/SportsBlog";
+import WhyEquipify from "../../components/WhyChoose/WhyChoose";
 
 function Home() {
   const products = useLoaderData()
@@ -11,7 +13,7 @@ function Home() {
       <Banner />
       <OurProduct products={products}/>
       <div className="px-4 md:px-8 lg:px-16 py-6">
-        <h1 className="text-center font-bold text-gray-600 text-3xl mb-6">Product Category</h1>
+        <h1 className="text-center font-bold text-gray-600 text-3xl mb-6">Equipment Category</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-6">
           {/* Left Column (Categories) */}
           <div className="md:col-span-1 lg:col-span-3">
@@ -23,6 +25,8 @@ function Home() {
           </div>
         </div>
       </div>
+      <SportsBlog></SportsBlog>
+      <WhyEquipify></WhyEquipify>
     </div>
   );
 }

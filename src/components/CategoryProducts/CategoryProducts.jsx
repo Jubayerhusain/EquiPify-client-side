@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
+import { Tooltip } from "react-tooltip";
 
-function categorycategorys() {
+function CategoryProducts() {
   const categories = useLoaderData();
   console.log(categories);
 
@@ -16,13 +17,13 @@ function categorycategorys() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 my-14">
         {categories.map((category) => (
           <div
-            className="transition-shadow duration-300 w-full card bg-base-100 shadow-xl"
-            key={category._id}
+          className="group p-5 bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-80"
+          key={category._id}
           >
             <figure>
               <img
-                className="w-full h-60 object-cover rounded-t-lg mb-4"
-                src={category.image}
+              className="w-full rounded-md h-60 object-cover group-hover:scale-110 transition-transform duration-500"
+              src={category.image}
                 alt={category.categoryName}
               />
             </figure>
@@ -51,12 +52,14 @@ function categorycategorys() {
                 Rating: {category.rating}★
               </p>
               <Link
+              id={`category-${category._id}`}
                 to={`/products/${category._id}`}
                 className="w-full btn mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
               >
                 View Details
               </Link>
             </div>
+            <Tooltip anchorSelect={`#category-${category._id}`}  content="Your can see all details" />
           </div>
         ))}
       </div>
@@ -64,4 +67,4 @@ function categorycategorys() {
   );
 }
 
-export default categorycategorys;
+export default CategoryProducts;

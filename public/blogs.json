@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "title": "Master Basketball in 30 Days!",
+      "description": "Unlock your basketball potential with pro tips and daily drills to elevate your game in just one month.",
+      "image": "https://i.ibb.co/yqVH3Gw/basketball-blog.jpg",
+      "link": "/blogs/basketball-tips"
+    },
+    {
+      "id": 2,
+      "title": "Football Fitness Secrets",
+      "description": "Discover fitness routines and strategies tailored for football enthusiasts of all levels.",
+      "image": "https://i.ibb.co/KhFkL6P/football-blog.jpg",
+      "link": "/blogs/football-fitness"
+    },
+    {
+      "id": 3,
+      "title": "Hockey Gear Guide 2024",
+      "description": "Stay ahead of the game with our expert recommendations for the latest hockey equipment.",
+      "image": "https://i.ibb.co/m9PRCVg/hockey-blog.jpg",
+      "link": "/blogs/hockey-gear"
+    },
+    {
+      "id": 4,
+      "title": "Top 5 Tennis Rackets for Beginners",
+      "description": "Learn about the best tennis rackets for beginners and start your journey to mastering tennis.",
+      "image": "https://i.ibb.co/gWFy2Cz/tennis-blog.jpg",
+      "link": "/blogs/tennis-rackets"
+    },
+    {
+      "id": 5,
+      "title": "Cricket Bat Buying Guide",
+      "description": "Find out how to choose the perfect cricket bat for your style of play and skill level.",
+      "image": "https://i.ibb.co/nDtG80D/cricket-blog.jpg",
+      "link": "/blogs/cricket-bats"
+    },
+    {
+      "id": 6,
+      "title": "Marathon Training: Beginner to Pro",
+      "description": "Step up your running game with a comprehensive training plan for marathon preparation.",
+      "image": "https://i.ibb.co/CmZr5H7/marathon-blog.jpg",
+      "link": "/blogs/marathon-training"
+    },
+    {
+      "id": 7,
+      "title": "Yoga for Athletes",
+      "description": "Explore how yoga can enhance your athletic performance and recovery time.",
+      "image": "https://i.ibb.co/3cH6rM8/yoga-blog.jpg",
+      "link": "/blogs/yoga-for-athletes"
+    },
+    {
+      "id": 8,
+      "title": "The Science Behind Swimming",
+      "description": "Dive into the biomechanics of swimming and learn how to improve your strokes.",
+      "image": "https://i.ibb.co/XXrhy6r/swimming-blog.jpg",
+      "link": "/blogs/science-of-swimming"
+    },
+    {
+      "id": 9,
+      "title": "Cycling Tips for Endurance",
+      "description": "Maximize your cycling stamina with expert tips and nutrition plans for long rides.",
+      "image": "https://i.ibb.co/WztnpPn/cycling-blog.jpg",
+      "link": "/blogs/cycling-tips"
+    },
+    {
+      "id": 10,
+      "title": "Top 10 Golf Techniques for Beginners",
+      "description": "Learn the basics of golf with these top techniques to improve your swing and accuracy.",
+      "image": "https://i.ibb.co/tJykjc8/golf-blog.jpg",
+      "link": "/blogs/golf-techniques"
+    }
+  ]
+  
