@@ -22,7 +22,7 @@ function OurProduct({ products }) {
           <div
             key={product._id}
             data-aos="fade-up"
-            className="group relative bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
+            className="group p-5 relative bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
           >
             <img
               src={product.image}
