@@ -5,7 +5,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Swal from "sweetalert2";
 import { Fade } from "react-awesome-reveal";
-
+import { Tooltip } from "react-tooltip";
+import { FaDeleteLeft } from "react-icons/fa6";
 function MyEquipmentList() {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
@@ -145,23 +146,39 @@ function MyEquipmentList() {
               </p>
               <div className="flex justify-between items-center">
                 <Link
+                id="view"
                   to={`/products/${product._id}`}
                   className="btn mt-4 bg-blue-500 text-white py-2 px-4 rounded-xl hover:bg-blue-600 transition-colors"
                 >
                   View Details
                 </Link>
+                <Tooltip
+                  anchorSelect="#view"
+                  content="Your can see all details"
+                />
                 <Link
+                id="update"
                   to={`/productsUpdate/${product._id}`}
                   className="btn mt-4 bg-green-500 text-white py-2 px-4 rounded-xl hover:bg-green-600 transition-colors"
                 >
                   Update
                 </Link>
+                <Tooltip
+                  anchorSelect="#update"
+                  content="Your can Update this Equipment"
+                />
                 <Link
+                  id="delete"
                   onClick={() => hundleDelete(product._id)}
                   className="btn mt-4 bg-red-500 text-white py-2 px-4 rounded-xl hover:bg-red-600 transition-colors"
                 >
+                  {/* Delete */}
                   Delete
                 </Link>
+                <Tooltip
+                  anchorSelect="#delete"
+                  content="Your can delete this Equipment"
+                />
               </div>
             </div>
           ))}

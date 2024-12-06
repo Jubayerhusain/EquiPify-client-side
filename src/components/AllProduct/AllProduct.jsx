@@ -13,7 +13,7 @@ function AllProduct() {
       <h1 className="text-center rounded-md my-8 block bg-blue-200 text-2xl font-bold text-gray-700 py-3 ">
         All Equipments ({products.length})
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 my-14">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 my-14">
         {products.slice(0, 10).map((product, index) => (
           <div
             key={index}
