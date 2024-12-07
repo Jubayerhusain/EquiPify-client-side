@@ -16,7 +16,7 @@ function PrivateRoute({children}) {
         return children;
     }
     return (
-        <Navigate to={`/signIn`}></Navigate>
+        <Navigate state={location.pathname} to={`/signIn`}></Navigate>
     )
 }
 

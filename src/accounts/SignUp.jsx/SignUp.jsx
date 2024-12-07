@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css"; // AOS animation styles
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -11,6 +11,7 @@ function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const { createUser, handleGoogleAuth } = useContext(AuthContext);
+  const location = useLocation()
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -107,7 +108,7 @@ function SignUp() {
           .then((res) => res.json())
           .then((data) => {
             // console.log("User added to database:", data);
-            navigate(`/`);
+            navigate(location?.state ? location.state : "/");
           })
           .catch((error) => {
             toast.error("Failed to add user to database:", error.message);
