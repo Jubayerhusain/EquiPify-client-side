@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Fade } from "react-awesome-reveal";
 import { Tooltip } from "react-tooltip";
+import PageTitle from "../../components/PageTitle/PageTitle";
 function AllEquipiment() {
   const allProduct = useLoaderData();
   const [products, setProducts] = useState(allProduct);
@@ -23,7 +24,9 @@ function AllEquipiment() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50">
+    <div>
+      <PageTitle title={'All Equipment'}></PageTitle>
+      <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50">
       <div className="container  mx-auto py-8">
         <Fade direction="down">
         <div className="flex items-center my-10 space-x-3">
@@ -93,6 +96,7 @@ function AllEquipiment() {
           </Fade>
         </div>
       </div>
+    </div>
     </div>
   );
 }

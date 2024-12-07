@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { Fade } from "react-awesome-reveal";
 import { Tooltip } from "react-tooltip";
 import { FaDeleteLeft } from "react-icons/fa6";
+import PageTitle from "../../components/PageTitle/PageTitle";
 function MyEquipmentList() {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
@@ -98,93 +99,100 @@ function MyEquipmentList() {
   };
 
   return (
-    <div className="min-h-[620px] p-4 mx-10">
-      <Fade direction="down">
-        <h1 className="text-2xl text-gray-700 my-9 font-bold">
-          My Equipment List ({products.length})
-        </h1>
-      </Fade>
-      <Fade direction="up" triggerOnce>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-4">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              data-aos="fade-up"
-              className="flex flex-col justify-between group p-5 bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
-            >
-              <img
-                src={product.image}
-                alt={product.itemName}
-                className="w-full h-60 rounded-md object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <p className="text-lg mt-5 text-gray-600 italic mb-6">
-                <strong>Description:</strong>{" "}
-                {product.description || "No description available."}
-              </p>
-              <p className="text-gray-600">
-                Customization: {product.customization}
-              </p>
-              <h2 className="text-lg font-semibold mb-2">{product.itemName}</h2>
-              <p className="text-gray-600">
-                Processing Time: {product.processingTime}
-              </p>
-              <p className="text-gray-600">Category: {product.categoryName}</p>
-              <p className="text-blue-500 font-bold mt-2">
-                Price: ${product.price}
-              </p>
-              <p
-                className={`mt-2 ${
-                  product.stockStatus === "In Stock"
-                    ? "text-green-500"
-                    : "text-red-500"
-                }`}
+    <div>
+      <PageTitle title={"My Equipments"}></PageTitle>
+      <div className="min-h-[620px] p-4 mx-10">
+        <Fade direction="down">
+          <h1 className="text-2xl text-gray-700 my-9 font-bold">
+            My Equipment List ({products.length})
+          </h1>
+        </Fade>
+        <Fade direction="up" triggerOnce>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-4">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                data-aos="fade-up"
+                className="flex flex-col justify-between group p-5 bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
               >
-                Stock Status: {product.stockStatus}
-              </p>
-              <p className="text-yellow-500 font-bold mt-2">
-                Rating: {product.rating}★
-              </p>
-              <div className="flex justify-between items-center">
-                <Link
-                  id={`view-${product._id}`}
-                  to={`/products/${product._id}`}
-                  className="btn mt-4 bg-blue-500 text-white py-2 px-4 rounded-xl hover:bg-blue-600 transition-colors"
-                >
-                  View 
-                </Link>
-                <Tooltip
-                  anchorSelect={`#view-${product._id}`}
-                  content="Your can see all details"
+                <img
+                  src={product.image}
+                  alt={product.itemName}
+                  className="w-full h-60 rounded-md object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <Link
-                  id={`Update-${product._id}`}
-                  to={`/productsUpdate/${product._id}`}
-                  className="btn mt-4 bg-green-500 text-white py-2 px-4 rounded-xl hover:bg-green-600 transition-colors"
+                <p className="text-lg mt-5 text-gray-600 italic mb-6">
+                  <strong>Description:</strong>{" "}
+                  {product.description || "No description available."}
+                </p>
+                <p className="text-gray-600">
+                  Customization: {product.customization}
+                </p>
+                <h2 className="text-lg font-semibold mb-2">
+                  {product.itemName}
+                </h2>
+                <p className="text-gray-600">
+                  Processing Time: {product.processingTime}
+                </p>
+                <p className="text-gray-600">
+                  Category: {product.categoryName}
+                </p>
+                <p className="text-blue-500 font-bold mt-2">
+                  Price: ${product.price}
+                </p>
+                <p
+                  className={`mt-2 ${
+                    product.stockStatus === "In Stock"
+                      ? "text-green-500"
+                      : "text-red-500"
+                  }`}
                 >
-                  Update
-                </Link>
-                <Tooltip
-                  anchorSelect={`#Update-${product._id}`}
-                  content="Your can Update this Equipment"
-                />
-                <Link
-                  id={`delete-${product._id}`}
-                  onClick={() => hundleDelete(product._id)}
-                  className="btn mt-4 bg-red-500 text-white py-2 px-4 rounded-xl hover:bg-red-600 transition-colors"
-                >
-                  {/* Delete */}
-                  Delete
-                </Link>
-                <Tooltip
-                  anchorSelect={`#delete-${product._id}`}
-                  content="Your can delete this Equipment"
-                />
+                  Stock Status: {product.stockStatus}
+                </p>
+                <p className="text-yellow-500 font-bold mt-2">
+                  Rating: {product.rating}★
+                </p>
+                <div className="flex justify-between items-center">
+                  <Link
+                    id={`view-${product._id}`}
+                    to={`/products/${product._id}`}
+                    className="btn mt-4 bg-blue-500 text-white py-2 px-4 rounded-xl hover:bg-blue-600 transition-colors"
+                  >
+                    View
+                  </Link>
+                  <Tooltip
+                    anchorSelect={`#view-${product._id}`}
+                    content="Your can see all details"
+                  />
+                  <Link
+                    id={`Update-${product._id}`}
+                    to={`/productsUpdate/${product._id}`}
+                    className="btn mt-4 bg-green-500 text-white py-2 px-4 rounded-xl hover:bg-green-600 transition-colors"
+                  >
+                    Update
+                  </Link>
+                  <Tooltip
+                    anchorSelect={`#Update-${product._id}`}
+                    content="Your can Update this Equipment"
+                  />
+                  <Link
+                    id={`delete-${product._id}`}
+                    onClick={() => hundleDelete(product._id)}
+                    className="btn mt-4 bg-red-500 text-white py-2 px-4 rounded-xl hover:bg-red-600 transition-colors"
+                  >
+                    {/* Delete */}
+                    Delete
+                  </Link>
+                  <Tooltip
+                    anchorSelect={`#delete-${product._id}`}
+                    content="Your can delete this Equipment"
+                  />
+                </div>
+                {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-500"></div> */}
               </div>
-              {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-500"></div> */}
-            </div>
-          ))}
-        </div>
-      </Fade>
+            ))}
+          </div>
+        </Fade>
+      </div>
     </div>
   );
 }

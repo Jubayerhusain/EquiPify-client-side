@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Fade } from "react-awesome-reveal";
 import { Tooltip } from "react-tooltip";
+import PageTitle from "../PageTitle/PageTitle";
 
 function ViewDetails() {
   // Load the specific product data
@@ -14,7 +15,9 @@ function ViewDetails() {
   }, []);
 
   return (
-    <Fade direction="up" triggerOnce>
+   <div>
+      <PageTitle title={'details'}></PageTitle>
+     <Fade direction="up" triggerOnce>
       <div className="container  mx-auto py-8">
         <div
           className="flex flex-col h-[700px] lg:flex-row items-center bg-white rounded-lg shadow-lg overflow-hidden"
@@ -66,6 +69,7 @@ function ViewDetails() {
         </div>
       </div>
     </Fade>
+   </div>
   );
 }
 

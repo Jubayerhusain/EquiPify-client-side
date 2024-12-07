@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PageTitle from "../PageTitle/PageTitle";
 
 const ErrorPage = () => {
   return (
-    <div className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-yellow-100 to-orange-200 text-center">
+   <div>
+      <PageTitle title={'Error'}></PageTitle>
+     <div className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-yellow-100 to-orange-200 text-center">
       <div className="bg-white p-10 rounded-lg shadow-2xl max-w-md">
         <h1 className="text-8xl font-extrabold text-orange-500 mb-4">404</h1>
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
@@ -29,6 +32,7 @@ const ErrorPage = () => {
         </Link>
       </div>
     </div>
+   </div>
   );
 };
 
