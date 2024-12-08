@@ -21,7 +21,7 @@ function Layout() {
   const matchedUser = currentUser.find((u) => u.email === user?.email) || null;
 
   return (
-    <div className="bg-gradient-to-r from-blue-100 via-white to-blue-100 ">
+    <div className="">
       <Navber matchedUser={matchedUser || { name: "Guest User" }}></Navber>
       <Outlet />
       <Footer></Footer>

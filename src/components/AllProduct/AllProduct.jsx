@@ -11,16 +11,16 @@ function AllProduct() {
   }, []);
   return (
     <div className="p-4">
-      <h1 className="text-center rounded-md my-8 block bg-blue-200 text-2xl font-bold text-gray-700 py-3 ">
+      {/* <h1 className="text-center rounded-md my-8 block bg-blue-200 text-2xl font-bold text-gray-700 py-3 ">
         All Equipments ({products.length})
-      </h1>
+      </h1> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 my-14">
         {products.slice(0, 10).map((product, index) => (
           <div
             key={index}
             
             data-aos="fade-up"
-            className="group p-5 bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
+            className="group p-5 shadow-xl rounded-lg overflow-hidden transform transition-transform hover:scale-105"
           >
             <img
               src={product.image}
@@ -29,10 +29,10 @@ function AllProduct() {
 
             />
             <h2 className="text-lg mt-5 font-semibold mb-2">{product.itemName}</h2>
-            <p className="text-gray-600">
+            <p className="">
               Processing Time: {product.processingTime}
             </p>
-            <p className="text-gray-600">Category: {product.categoryName}</p>
+            <p className="">Category: {product.categoryName}</p>
             <p className="text-blue-500 font-bold mt-2">
               Price: ${product.price}
             </p>

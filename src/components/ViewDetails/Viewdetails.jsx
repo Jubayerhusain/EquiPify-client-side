@@ -20,7 +20,7 @@ function ViewDetails() {
      <Fade direction="up" triggerOnce>
       <div className="container  mx-auto py-8">
         <div
-          className="flex flex-col h-[700px] lg:flex-row items-center bg-white rounded-lg shadow-lg overflow-hidden"
+          className="flex flex-col h-[700px] lg:flex-row items-center rounded-lg shadow-lg overflow-hidden"
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-delay="200"
@@ -36,23 +36,23 @@ function ViewDetails() {
 
           {/* Right Side: Text Content */}
           <div className="lg:w-1/2 w-full p-6">
-            <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            <h1 className="text-3xl font-bold text-blue-500 mb-4">
               {product.itemName}
             </h1>
-            <p className="text-lg text-gray-600 italic mb-6">
+            <p className="text-lg  italic mb-6">
               <strong>Description:</strong>{" "}
               {product.description || "No description available."}
             </p>
-            <p className="text-lg text-gray-600 mb-2">
+            <p className="text-lg  mb-2">
               <strong>Category:</strong> {product.categoryName}
             </p>
-            <p className="text-lg text-gray-600 mb-2">
+            <p className="text-lg  mb-2">
               <strong>Price:</strong> ${product.price}
             </p>
-            <p className="text-lg text-gray-600 mb-2">
+            <p className="text-lg  mb-2">
               <strong>Stock:</strong> {product.stockStatus}
             </p>
-            <p className="text-lg text-gray-600 mb-2 items-center space-x-2 flex">
+            <p className="text-lg  mb-2 items-center space-x-2 flex">
               <strong>Rating:</strong> <p>{product.rating} / 5</p>
               <p className="text-2xl">★</p>
             </p>

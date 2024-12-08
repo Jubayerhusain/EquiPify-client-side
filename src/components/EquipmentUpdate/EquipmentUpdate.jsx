@@ -77,25 +77,25 @@ function UpdateEquipmentForm() {
         }
       });
   };
-
+  // bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50
   return (
     <div>
       <PageTitle title={'Update'}></PageTitle>
       <div
-        className="min-h-screen py-36 flex items-center justify-center bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 p-5"
+        className="min-h-screen py-36 flex items-center justify-center  p-5"
         data-aos="fade-up"
       >
         <div
-          className="bg-white rounded-lg shadow-md p-10 w-full max-w-4xl"
+          className="bg-base-100 rounded-lg shadow-md p-10 w-full max-w-4xl"
           data-aos="zoom-in"
         >
-          <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
+          <h2 className="text-2xl font-bold text-center mb-6 text-blue-500">
             Update Now Equipment
           </h2>
           <form onSubmit={handleSubmitForm} className="space-y-6">
             {/* Image URL */}
             <div className="space-y-2">
-              <label htmlFor="image" className="text-gray-600">
+              <label htmlFor="image" className="">
                 Image URL
               </label>
               <input
@@ -104,13 +104,13 @@ function UpdateEquipmentForm() {
                 name="image"
                 defaultValue={product.image}
                 placeholder="Enter the image URL"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border bg-base-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
             </div>
             {/* Item Name */}
             <div className="space-y-2">
-              <label htmlFor="itemName" className="text-gray-600">
+              <label htmlFor="itemName" className="">
                 Item Name
               </label>
               <input
@@ -119,20 +119,20 @@ function UpdateEquipmentForm() {
                 name="itemName"
                 defaultValue={product.itemName}
                 placeholder="Enter the item name"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border bg-base-100  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
             </div>
             {/* Category Name */}
             <div className="space-y-2">
-              <label htmlFor="categoryName" className="text-gray-600">
+              <label htmlFor="categoryName" className="">
                 Category Name
               </label>
               <select
                 id="categoryName"
                 name="categoryName"
                 defaultValue={product.categoryName}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border bg-base-100  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               >
                 <option value="" disabled>
@@ -149,7 +149,7 @@ function UpdateEquipmentForm() {
             </div>
             {/* Description */}
             <div className="space-y-2">
-              <label htmlFor="description" className="text-gray-600">
+              <label htmlFor="description" className="">
                 Description
               </label>
               <textarea
@@ -157,14 +157,14 @@ function UpdateEquipmentForm() {
                 name="description"
                 defaultValue={product.description}
                 placeholder="Enter a brief description"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border bg-base-100  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 rows="3"
                 required
               ></textarea>
             </div>
             {/* Price */}
             <div className="space-y-2">
-              <label htmlFor="price" className="text-gray-600">
+              <label htmlFor="price" className="">
                 Price
               </label>
               <input
@@ -173,13 +173,13 @@ function UpdateEquipmentForm() {
                 name="price"
                 defaultValue={product.price}
                 placeholder="Enter the price"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border bg-base-100  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
             </div>
             {/* Rating */}
             <div className="space-y-2">
-              <label htmlFor="rating" className="text-gray-600">
+              <label htmlFor="rating" className="">
                 Rating
               </label>
               <input
@@ -188,7 +188,7 @@ function UpdateEquipmentForm() {
                 name="rating"
                 defaultValue={product.rating}
                 placeholder="Enter the rating (1-5)"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border bg-base-100  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 min="1"
                 max="5"
                 required
@@ -196,7 +196,7 @@ function UpdateEquipmentForm() {
             </div>
             {/* Customization */}
             <div className="space-y-2">
-              <label htmlFor="customization" className="text-gray-600">
+              <label htmlFor="customization" className="">
                 Customization
               </label>
               <input
@@ -205,12 +205,12 @@ function UpdateEquipmentForm() {
                 name="customization"
                 defaultValue={product.customization}
                 placeholder="e.g., Bat with extra grip"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border bg-base-100  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
             {/* Processing Time */}
             <div className="space-y-2">
-              <label htmlFor="processingTime" className="text-gray-600">
+              <label htmlFor="processingTime" className="">
                 Processing Time
               </label>
               <input
@@ -219,12 +219,12 @@ function UpdateEquipmentForm() {
                 name="processingTime"
                 defaultValue={product.processingTime}
                 placeholder="e.g., 3-5 days"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border bg-base-100  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
             {/* Stock Status */}
             <div className="space-y-2">
-              <label htmlFor="stockStatus" className="text-gray-600">
+              <label htmlFor="stockStatus" className="">
                 Stock Status
               </label>
               <input
@@ -233,27 +233,27 @@ function UpdateEquipmentForm() {
                 name="stockStatus"
                 defaultValue={product.stockStatus}
                 placeholder="Available quantity"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border bg-base-100  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
             </div>
             {/* User Info */}
             <div className="space-y-2">
-              <label className="text-gray-600">User Email</label>
+              <label className="">User Email</label>
               <input
                 type="email"
                 value={user?.email || ""}
                 readOnly
-                className="w-full px-4 py-2 border rounded-lg bg-gray-100"
+                className="w-full px-4 py-2 border bg-base-100  rounded-lg "
               />
             </div>
             <div className="space-y-2">
-              <label className="text-gray-600">User Name</label>
+              <label className="">User Name</label>
               <input
                 type="text"
                 value={user?.displayName || ""}
                 readOnly
-                className="w-full px-4 py-2 border rounded-lg bg-gray-100"
+                className="w-full px-4 py-2 border rounded-lg bg-base-100 "
               />
             </div>
             {/* Submit Button */}

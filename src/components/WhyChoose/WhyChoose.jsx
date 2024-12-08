@@ -35,12 +35,12 @@ const WhyEquipify = () => {
         "Flexible payment plans to help athletes get the gear they need without upfront financial strain.",
     },
   ];
-
+  // bg-gradient-to-r from-green-50 via-white to-blue-50
   return (
-    <div className="bg-gradient-to-r from-green-50 via-white to-blue-50 py-16">
+    <div className=" py-16">
       <div className="container mx-auto px-6 md:px-12">
         <Fade triggerOnce>
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
+          <h2 className="text-4xl font-bold text-center  mb-12">
             Why Choose <span className="text-blue-500">Equipify</span>?
           </h2>
         </Fade>
@@ -48,14 +48,14 @@ const WhyEquipify = () => {
           {points.map((point, index) => (
             <Slide direction={index % 2 === 0 ? "left" : "right"} triggerOnce key={index}>
               <div
-                className="h-[330px] bg-white shadow-lg rounded-lg p-6 text-center transition-transform transform hover:scale-105"
+                className="h-[330px] bg-base-100 shadow-lg rounded-lg p-6 text-center transition-transform transform hover:scale-105"
                 data-aos="fade-up"
               >
                 <div className="mb-4 flex justify-center">{point.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                <h3 className="text-xl font-semibold text-blue-300 mb-2">
                   {point.title}
                 </h3>
-                <p className="text-gray-600">{point.description}</p>
+                <p className="">{point.description}</p>
               </div>
             </Slide>
           ))}

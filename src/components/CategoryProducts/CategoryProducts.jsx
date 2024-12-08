@@ -9,15 +9,15 @@ function CategoryProducts() {
 
   return (
     <div>
-      <Fade direction="down">
+      {/* <Fade direction="down">
         <h2 className="text-center rounded-md my-8 block bg-blue-200 text-2xl font-bold text-gray-700 py-3 ">
           Available Equipment:({categories.length})
         </h2>
-      </Fade>
+      </Fade> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 my-14">
         {categories.map((category) => (
           <div
-          className="group p-5 bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-80"
+          className="group p-5  bg-gradient-to-r  shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-80"
           key={category._id}
           >
             <figure>
@@ -32,10 +32,10 @@ function CategoryProducts() {
                 {category.itemName}
                 <div className="badge badge-secondary">NEW</div>
               </h2>
-              <p className="text-gray-600">
+              <p className="">
                 Processing Time: {category.processingTime}
               </p>
-              <p className="text-gray-600">category: {category.categoryName}</p>
+              <p className="">category: {category.categoryName}</p>
               <p className="text-blue-500 font-bold mt-2">
                 Price: ${category.price}
               </p>

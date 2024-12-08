@@ -51,7 +51,7 @@ function MyEquipmentList() {
     return (
       <div className="min-h-[500px] ">
         <Fade direction="down">
-          <div className="text-center font-bold text-gray-600 text-3xl mt-10">
+          <div className="text-center font-bold  text-3xl mt-10">
             No equipment found for your email.
           </div>
         </Fade>
@@ -103,7 +103,7 @@ function MyEquipmentList() {
       <PageTitle title={"My Equipments"}></PageTitle>
       <div className="min-h-[620px] p-4 mx-10">
         <Fade direction="down">
-          <h1 className="text-2xl text-gray-700 my-9 font-bold">
+          <h1 className="text-2xl text-blue-500 my-9 font-bold">
             My Equipment List ({products.length})
           </h1>
         </Fade>
@@ -113,27 +113,27 @@ function MyEquipmentList() {
               <div
                 key={product.id}
                 data-aos="fade-up"
-                className="flex flex-col justify-between group p-5 bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
+                className="flex flex-col justify-between group p-5 shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
               >
                 <img
                   src={product.image}
                   alt={product.itemName}
                   className="w-full h-60 rounded-md object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <p className="text-lg mt-5 text-gray-600 italic mb-6">
+                <p className="text-lg mt-5  italic mb-6">
                   <strong>Description:</strong>{" "}
                   {product.description || "No description available."}
                 </p>
-                <p className="text-gray-600">
+                <p className="">
                   Customization: {product.customization}
                 </p>
                 <h2 className="text-lg font-semibold mb-2">
                   {product.itemName}
                 </h2>
-                <p className="text-gray-600">
+                <p className="">
                   Processing Time: {product.processingTime}
                 </p>
-                <p className="text-gray-600">
+                <p className="">
                   Category: {product.categoryName}
                 </p>
                 <p className="text-blue-500 font-bold mt-2">

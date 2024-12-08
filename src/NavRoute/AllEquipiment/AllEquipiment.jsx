@@ -26,7 +26,7 @@ function AllEquipiment() {
   return (
     <div>
       <PageTitle title={'All Equipment'}></PageTitle>
-      <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50">
+      <div className="">
       <div className="container  mx-auto py-8">
         <Fade direction="down">
         <div className="flex items-center my-10 space-x-3">
@@ -44,21 +44,21 @@ function AllEquipiment() {
         <div className="overflow-x-auto">
           <Fade direction="up" triggerOnce>
             <table className="table-auto w-full text-left border border-gray-300">
-              <thead className="bg-blue-200">
+              <thead className="bg-blue-500">
                 <tr>
-                  <th className="px-4 py-2 border">Image</th>
-                  <th className="px-4 py-2 border">Name</th>
-                  <th className="px-4 py-2 border">Category</th>
-                  <th className="px-4 py-2 border">Price</th>
-                  <th className="px-4 py-2 border">Stock</th>
-                  <th className="px-4 py-2 border">Actions</th>
+                  <th className="px-4 py-2 border text-gray-700">Image</th>
+                  <th className="px-4 py-2 border text-gray-700">Name</th>
+                  <th className="px-4 py-2 border text-gray-700">Category</th>
+                  <th className="px-4 py-2 border text-gray-700">Price</th>
+                  <th className="px-4 py-2 border text-gray-700">Stock</th>
+                  <th className="px-4 py-2 border text-gray-700">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {products.map((product) => (
                   <tr
                     key={product._id}
-                    className="hover:bg-blue-50 hover:shadow-lg"
+                    className="hover:bg-blue-100 hover:border-blue-400 hover:text-gray-700 hover:shadow-lg"
                   >
                     {/* Image */}
                     <td className="px-4 py-2 border">

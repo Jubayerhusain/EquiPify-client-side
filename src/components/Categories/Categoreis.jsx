@@ -22,8 +22,8 @@ function Categories() {
               `block w-full text-center text-lg capitalize font-semibold px-4 py-2 rounded-lg ${
                 isActive 
                   ? "bg-blue-500 text-gray-200"
-                  : "bg-blue-100 text-gray-700"
-              } hover:bg-blue-300 hover:text-gray-600 transition duration-200`
+                  : " border-2 border-gray-400"
+              } hover:bg-blue-300 hover: transition duration-200`
             }>
           All Product
         </NavLink>
@@ -35,8 +35,8 @@ function Categories() {
               `block w-full text-center text-lg capitalize font-semibold px-4 py-2 rounded-lg ${
                 isActive 
                   ? "bg-blue-500 text-gray-200"
-                  : "bg-blue-100 text-gray-700"
-              } hover:bg-blue-300 hover:text-gray-600 transition duration-200`
+                  : "border-2 border-gray-400"
+              } hover:bg-blue-300 hover: transition duration-200`
             }
           >
             <Fade direction="up" triggerOnce>

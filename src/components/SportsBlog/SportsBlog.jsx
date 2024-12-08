@@ -16,12 +16,12 @@ const SportsBlog = () => {
       .catch((error) => console.error("Error fetching blogs:", error));
   },[])
 
-
+  // bg-gradient-to-r from-blue-100 via-white to-blue-100
   return (
-    <div className="bg-gradient-to-r from-blue-100 via-white to-blue-100 py-16">
+    <div className=" py-16">
       <div className=" mx-auto px-6 md:px-12">
         <Fade direction="down">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
+          <h2 className="text-4xl font-bold text-center text-blue-500 mb-12">
             Explore Expert Tips & Insights
           </h2>
         </Fade>
@@ -30,7 +30,7 @@ const SportsBlog = () => {
             <Slide direction={index % 2 === 0 ? "left" : "right"} triggerOnce key={blog.id}>
               <div
                 data-aos="fade-up"
-                className="group h-[450px] relative bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
+                className="group h-[450px] relative bg-base-100 shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
               >
                 <div className="overflow-hidden">
                   <img
@@ -43,7 +43,7 @@ const SportsBlog = () => {
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">
                     {blog.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">{blog.description}</p>
+                  <p className=" mb-4">{blog.description}</p>
                   <a
                     href={blog.link}
                     className="text-blue-500 font-bold hover:underline flex items-center gap-2"

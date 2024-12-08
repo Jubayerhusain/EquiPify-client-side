@@ -17,7 +17,7 @@ function Home() {
         <Banner />
         <OurProduct products={products} />
         <div className="px-4 md:px-8 lg:px-16 py-6">
-          <h1 className="text-center font-bold text-gray-600 text-3xl mb-6">
+          <h1 className="text-center font-bold text-blue-500 text-3xl mb-6">
             Equipment Category
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-6">
