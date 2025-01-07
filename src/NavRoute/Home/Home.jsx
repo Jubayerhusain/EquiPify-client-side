@@ -6,6 +6,8 @@ import { Outlet, useLoaderData } from "react-router-dom";
 import SportsBlog from "../../components/SportsBlog/SportsBlog";
 import WhyEquipify from "../../components/WhyChoose/WhyChoose";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import FAQSection from './../../components/FAQSection/FAQSection';
+import CallToAction from "../../components/CallToAction/CallToAction";
 
 function Home() {
   const products = useLoaderData();
@@ -33,6 +35,8 @@ function Home() {
         </div>
         <SportsBlog></SportsBlog>
         <WhyEquipify></WhyEquipify>
+        <FAQSection></FAQSection>
+        <CallToAction></CallToAction>
       </div>
     </div>
   );

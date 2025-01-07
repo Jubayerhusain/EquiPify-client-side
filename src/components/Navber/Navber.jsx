@@ -99,7 +99,6 @@ function Navbar({ matchedUser }) {
       </li>
     </>
   );
-
   const linkRight = (
     <>
       {!user ? (

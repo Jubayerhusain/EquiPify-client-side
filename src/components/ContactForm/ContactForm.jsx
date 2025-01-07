@@ -22,7 +22,7 @@ const ContactForm = () => {
 
   return (
     <div
-      className="flex justify-center items-center min-h-screen "
+      className="flex justify-center items-center mt-14 "
       data-aos="fade-up"
     >
       <form
@@ -30,7 +30,7 @@ const ContactForm = () => {
         onSubmit={handleSubmit}
         className=" p-8 rounded-lg shadow-2xl max-w-lg w-full"
       >
-        <h2 className="text-4xl font-bold text-blue-500  mb-6 text-center">
+        <h2 className="text-4xl font-bold text-blue  mb-6 text-center">
           Contact Us
         </h2>
         <div className="mb-4">

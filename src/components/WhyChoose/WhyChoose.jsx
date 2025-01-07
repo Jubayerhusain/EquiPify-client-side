@@ -37,8 +37,8 @@ const WhyEquipify = () => {
   ];
   // bg-gradient-to-r from-green-50 via-white to-blue-50
   return (
-    <div className=" py-16">
-      <div className="container mx-auto px-6 md:px-12">
+    <div className=" w-full py-16">
+      <div className="px-6 w-full md:px-12">
         <Fade triggerOnce>
           <h2 className="text-4xl font-bold text-center  mb-12">
             Why Choose <span className="text-blue-500">Equipify</span>?
