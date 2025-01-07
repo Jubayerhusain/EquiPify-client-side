@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="mt-9 bg-blue-600  text-gray-200 py-10">
+    <footer className="mt-9 bg-gradient-to-r from-teal-700 to-blue-900 text-gray-200 py-10">
       <div className="container mx-auto px-6 lg:px-20">
         {/* Logo and Tagline */}
         <div className="flex flex-col items-center text-center mb-8">

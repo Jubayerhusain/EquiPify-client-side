@@ -68,15 +68,22 @@ function Navbar({ matchedUser }) {
         </NavLink>
       </li>
       <li>
-        <p
-        id={`theme`}
-        className="text-lg font-bold">
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive
+              ? "text-lg font-bold text-blue-500 hover:text-blue-600"
+              : "text-lg text-gray-400 font-semibold hover:text-blue-500"
+          }
+        >
+         Contact Us
+        </NavLink>
+      </li>
+      <li>
+        <p id={`theme`} className="text-lg font-bold">
           <ThemeToggler></ThemeToggler>
         </p>
-        <Tooltip
-          anchorSelect={`#theme`}
-          content="Theme Switch"
-        />
+        <Tooltip anchorSelect={`#theme`} content="Theme Switch" />
       </li>
     </>
   );
