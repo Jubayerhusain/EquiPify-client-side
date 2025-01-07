@@ -118,7 +118,7 @@ function Navbar({ matchedUser }) {
         </>
       ) : (
         <>
-          <div className="relative w-14 h-14">
+          <div className="relative w-12 h-12 ">
             <img
               src={user?.photoURL || matchedUser?.photo}
               alt={user?.displayName || matchedUser?.name || "User"}
@@ -150,7 +150,7 @@ function Navbar({ matchedUser }) {
           <button
             tabIndex={0}
             role="button"
-            className="btn btn-ghost lg:hidden"
+            className="btn btn-ghost xl:hidden"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +169,7 @@ function Navbar({ matchedUser }) {
           </button>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-60 space-y-2 p-2 shadow-lg"
+            className="menu menu-sm dropdown-content bg-gray-900/50 rounded-box z-[1] mt-3 w-60 space-y-2 p-2 shadow-lg"
           >
             {linkCenter}
           </ul>
@@ -181,8 +181,8 @@ function Navbar({ matchedUser }) {
       </div>
 
       {/* Center Links for larger screens */}
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal items-center space-x-5">
+      <div className="navbar-center hidden xl:flex">
+        <ul className="menu menu-horizontal items-center space-x-2">
           {linkCenter}
         </ul>
       </div>

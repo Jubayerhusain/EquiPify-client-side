@@ -13,12 +13,12 @@ function Home() {
   const products = useLoaderData();
 
   return (
-    <div>
+    <div className="w-full">
       <PageTitle title={"Home"}></PageTitle>
       <div>
         <Banner />
         <OurProduct products={products} />
-        <div className="px-4 md:px-8 lg:px-16 py-6">
+        <div className="px-4 md:px-5 lg:px-16 py-6">
           <h1 className="text-center font-bold text-blue-500 text-3xl mb-6">
             Equipment Category
           </h1>

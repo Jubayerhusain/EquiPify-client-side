@@ -123,11 +123,11 @@ function SignUp() {
     <div>
       <PageTitle title={"Sign Up"}></PageTitle>
       <div
-        className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600"
+        className="min-h-screen flex items-center justify-center "
         data-aos="fade-up"
       >
         <div
-          className="flex flex-col lg:flex-row items-center bg-white shadow-lg rounded-xl max-w-5xl overflow-hidden"
+          className="flex flex-col lg:flex-row items-center  shadow-2xl rounded-xl max-w-5xl overflow-hidden"
           data-aos="zoom-in"
         >
           {/* Left Side: Form */}
@@ -137,16 +137,16 @@ function SignUp() {
               className="space-y-6"
               data-aos="fade-right"
             >
-              <h1 className="text-3xl font-bold text-gray-800">
+              <h1 className="text-3xl font-bold ">
                 Welcome to Equipify!
               </h1>
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-300 text-sm">
                 Start managing your sports equipment effortlessly.
               </p>
 
               {/* Name Field */}
               <div className="space-y-2">
-                <label className="text-gray-600">Full Name</label>
+                <label className="">Full Name</label>
                 <input
                   type="text"
                   name="name"
@@ -160,7 +160,7 @@ function SignUp() {
 
               {/* Photo URL Field */}
               <div className="space-y-2">
-                <label className="text-gray-600">Profile Picture</label>
+                <label className="">Profile Picture</label>
                 <input
                   type="text"
                   name="photo"
@@ -171,7 +171,7 @@ function SignUp() {
 
               {/* Email Field */}
               <div className="space-y-2">
-                <label className="text-gray-600">Email Address</label>
+                <label className="">Email Address</label>
                 <input
                   type="email"
                   name="email"
@@ -185,7 +185,7 @@ function SignUp() {
 
               {/* Password Field */}
               <div className="space-y-2 relative">
-                <label className="text-gray-600">Password</label>
+                <label className="">Password</label>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
