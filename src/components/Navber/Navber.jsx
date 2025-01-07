@@ -76,7 +76,19 @@ function Navbar({ matchedUser }) {
               : "text-lg text-gray-400 font-semibold hover:text-blue-500"
           }
         >
-         Contact Us
+          Contact Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/aboutUs"
+          className={({ isActive }) =>
+            isActive
+              ? "text-lg font-bold text-blue-500 hover:text-blue-600"
+              : "text-lg text-gray-400 font-semibold hover:text-blue-500"
+          }
+        >
+          About Us
         </NavLink>
       </li>
       <li>

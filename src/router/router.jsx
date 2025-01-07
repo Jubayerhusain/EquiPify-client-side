@@ -13,6 +13,7 @@ import AllProduct from "../components/AllProduct/AllProduct";
 import MyEquipmentList from "../NavRoute/MyEquipmentList/MyEquipmentList";
 import ErrorPage from "../components/ErrorPage/Errorpage";
 import ContactUs from "../NavRoute/ConatactUs/ContactUs";
+import AboutUs from "../NavRoute/AboutUs/AboutUs";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <ContactUs></ContactUs>
+      },
+      {
+        path: '/aboutUs',
+        element: <AboutUs></AboutUs>
       },
       {
         path: "/signUp",
