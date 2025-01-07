@@ -92,14 +92,14 @@ function SignIn() {
   return (
     <div>
       <PageTitle title={"Sign In"}></PageTitle>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
+      <div className="min-h-screen flex items-center justify-center ">
         <div
-          className="flex flex-col lg:flex-row items-center bg-white shadow-lg rounded-xl max-w-5xl overflow-hidden"
+          className="flex flex-col lg:flex-row items-center shadow-2xl rounded-xl max-w-5xl overflow-hidden"
           data-aos="fade-up"
         >
           {/* Left Side: Info */}
           <div
-            className="lg:w-1/2 w-full p-10 bg-gradient-to-r from-blue-700 to-purple-700 text-white flex flex-col items-center justify-center"
+            className="lg:w-1/2 w-full p-10 flex flex-col items-center justify-center"
             data-aos="zoom-in"
           >
             <h2 className="text-4xl font-bold mb-4 text-left">Welcome Back!</h2>
@@ -116,14 +116,14 @@ function SignIn() {
               className="space-y-6"
               data-aos="fade-left"
             >
-              <h1 className="text-3xl font-bold text-gray-800">Sign In</h1>
+              <h1 className="text-3xl font-bold ">Sign In</h1>
               <p className="text-gray-500 text-sm">
                 Enter your credentials to access your account.
               </p>
 
               {/* Email Field */}
               <div className="space-y-2">
-                <label className="text-gray-600">Email</label>
+                <label className="">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -135,7 +135,7 @@ function SignIn() {
 
               {/* Password Field */}
               <div className="space-y-2 relative">
-                <label className="text-gray-600">Password</label>
+                <label className="">Password</label>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
